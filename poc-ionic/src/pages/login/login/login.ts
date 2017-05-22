@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../../services/auth-service';
-import {HelloIonicPage} from '../../../pages/hello-ionic/hello-ionic'
+import {ProfilePage} from '../../../pages/profile/profile'
 import {RegisterPage} from '../../../pages/login/register/register'
 import { AlertController } from 'ionic-angular';
 
@@ -21,7 +21,7 @@ export class LoginPage {
 
   public login() {
     if (this.auth.login(this.email,this.password)){
-       this.nav.setRoot(HelloIonicPage);      
+       this.nav.setRoot(ProfilePage);      
     } else {
       let alert = this.alertCtrl.create({
         title: "Fallo de autenticación",

@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {LoginPage} from '../pages/login/login/login'
+import{ PollPage } from '../pages/poll/poll'
 
 
 @Component({
@@ -17,7 +18,7 @@ import {LoginPage} from '../pages/login/login/login'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = ProfilePage;
+  rootPage = PollPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -31,7 +32,7 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Mi perfil', component: ProfilePage },
-      { title: 'Mis eventos', component: ListPage }
+      { title: 'Mis eventos', component: PollPage }
     ];
   }
 

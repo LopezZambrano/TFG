@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, IonicPage } from 'ionic-angular';
 import { AuthService } from '../../../services/auth-service';
-import {HelloIonicPage} from '../../hello-ionic/hello-ionic'
+import {ProfilePage} from '../../profile/profile'
  
 
 @Component({
@@ -25,7 +25,7 @@ export class RegisterPage {
         });
       alert.present();
 
-        this.nav.setRoot(HelloIonicPage);
+        this.nav.setRoot(ProfilePage);
       } else {
         this.showPopup("Error", "Problem creating account.");
       }

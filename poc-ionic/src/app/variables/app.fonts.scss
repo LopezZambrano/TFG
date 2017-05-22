@@ -1,0 +1,31 @@
+$font-xsmall: 10px;
+$font-small: 12px;
+$font-medium: 15px; 
+$font-large: 20px;
+$font-xlarge: 22px;
+$font-xxlarge: 25px;
+$font-xxxlarge: 32px;
+
+.text-xsmall {
+  font-size: $font-xsmall;
+}
+
+.text-small {
+  font-size: $font-small;
+}
+
+.text-medium {
+ font-size: $font-medium;
+}
+
+.text-large {
+  font-size: $font-large;
+}
+
+.text-xlarge {
+  font-size: $font-xlarge;
+}
+
+.text-xxlarge {
+  font-size: $font-xxlarge;
+}
