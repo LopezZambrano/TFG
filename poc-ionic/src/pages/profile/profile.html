@@ -17,13 +17,20 @@
 
 <p>
   <ion-item>
-    <ion-label color="primary">Cambiar contraseña: </ion-label>
+    <ion-label color="primary"><ion-icon class="space" name="person"></ion-icon>Username: </ion-label>
+    <ion-input placeholder="Cambiar username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary"><ion-icon class="space" name="key"></ion-icon>Contraseña: </ion-label>
     <ion-input placeholder="Nueva contraseña"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label color="primary">Año de nacimiento: </ion-label>
+    <ion-label color="primary"><ion-icon class="space" name="calendar"></ion-icon>Año de nacimiento: </ion-label>
     <ion-input placeholder="Opcional"></ion-input>
   </ion-item>
 </p>
+
+  <button ion-button class="borrar" color="danger" (click)="borrar()">Borrar cuenta</button>
+
 </ion-content>
 </body>

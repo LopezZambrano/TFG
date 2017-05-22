@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
+import { ProfilePage } from '../pages/profile/profile';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +17,7 @@ import {LoginPage} from '../pages/login/login/login'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = HelloIonicPage;
+  rootPage = ProfilePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -30,7 +30,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Mi perfil', component: HelloIonicPage },
+      { title: 'Mi perfil', component: ProfilePage },
       { title: 'Mis eventos', component: ListPage }
     ];
   }
