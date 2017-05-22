@@ -1,0 +1,63 @@
+page-login {
+ 
+  span {
+    text-align: center;
+
+  }
+  .login-content {
+    
+     background: #5DADE2 ;
+ 
+    .logo-row {
+      padding-top: 20px;
+      padding-bottom: 1px; 
+        
+    }
+ 
+    .login-box {
+      background-image: url(https://www.collaborativedrug.com/wp-content/uploads/2013/07/CDD-event-calendar.jpg);
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+      border-radius: 10px; 
+        
+    }
+
+    .image {
+      border-radius: 20%;
+    }
+
+    ion-row {
+       align-items: center;
+       text-align: center;
+     
+     }
+ 
+     ion-item {
+         border-radius: 30px !important;
+         padding-left: 30px !important;
+         font-size: 0.9em;
+         margin-bottom: 10px;
+         border: 3px solid #1B4F72;
+         box-shadow: none !important;
+
+     }
+ 
+     .signup-col {
+       margin: 0px 16px 0px 16px;
+       padding-bottom: 20px;
+     }
+ 
+ 
+     .submit-btn {
+       background: #1B4F72;
+       border-radius: 30px !important;
+       border: 1px solid #85C1E9 ;
+     }
+ 
+     .register-btn {
+       color: black;
+       font-size: 1em;
+     }
+  }
+ 
+}

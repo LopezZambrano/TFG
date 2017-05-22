@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mi perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<body>
+<ion-content padding>
+
+  <h1> {{user.name}}</h1>
+  <img class="mediana" src="assets/imgs/23716.svg"><br>
+  <span class="photo">Foto de perfil (Opcional)</span>
+  <button ion-button color="light">Examinar..</button><br>
+
+<p>
+  <ion-item>
+    <ion-label color="primary">Cambiar contraseña: </ion-label>
+    <ion-input placeholder="Nueva contraseña"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Año de nacimiento: </ion-label>
+    <ion-input placeholder="Opcional"></ion-input>
+  </ion-item>
+</p>
+</ion-content>
+</body>
