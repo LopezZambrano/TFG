@@ -1,11 +1,16 @@
 page-poll{
     h1{
-        background: #4974A6;;
+        background: #3398DC;
         color: white;
         padding-top: 10px;
         padding-bottom: 10px;
         padding-left: 25px;
         margin: 0;
+    }
+
+    .title{
+        font-size: 18px;
+        color:#3398DC;
     }
 
     .select-md,
@@ -24,17 +29,58 @@ page-poll{
       font-size: 1.4rem;
   }
 
-  .checkbox
-  .checkbox-icon{
-        border-radius: 8px;
-        border-color: #3398DC;
-        width: 12px;
-        height: 12px;
-        margin: 9px 10px 9px 4px;
-  }
-    .item.item
-    .checkbox-md{
-        margin: 9px 10px 9px 4px;
-}
+    .datetime-text{
+        min-height: 0;
+    }   
+
+    .item{
+        font-size: 1.4rem;
+     }
+
+     div.part{
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 20px;
+     
+     }
+
+     .chip{
+        margin: 3px 3px;
+        height: 20px;
+        border-radius: 16px;
+        font-size: 13px;
+        line-height: 20px;
+        color: white;
+        background: #47A2DF;
+     }
+
+     ion-chip .button {
+        margin: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: 0;
+     }
+
+    .chip-ios > ion-label {
+        padding-left: 6px;
+        padding-right: 2px;
+        margin: auto;
+    }
+
+    .chips{
+        padding-left: 4px;
+    }
+
+    .space{
+        padding-right: 8px;
+        color: #3398DC;
+        font-size: 1.3em;
+    }
+
+    .close{
+        color:white;
+
+    }
 
 }

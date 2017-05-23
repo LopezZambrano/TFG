@@ -1,15 +1,43 @@
 <ion-content>
     <h1>Nueva encuesta</h1>
-    <div>
-     <ion-select [selectOptions]="{title: 'Tipo de encuesta'}" placeholder="Seleccione el tipo de encuesta">
+    <!--Selector tipo encuesta-->
+    <div [hidden]="type">
+     <ion-select [selectOptions]="{title: 'Tipo de encuesta'}" placeholder="Seleccione el tipo de encuesta" [formControl]="controltype">
        <ion-option value="fecha">Encuesta por fecha</ion-option>  
        <ion-option value="texto">Encuesta por texto</ion-option>
      </ion-select>
+    </div>
+  <!--Titulo-->
+  <div [hidden]="!type">
+    <div class="part">
+      <div>
+        <ion-item>
+          <ion-input class="title"type="text" placeholder="Título">Título</ion-input>
+        </ion-item>
+      </div>
+      <!--Fechas-->
+      <div [hidden]="!fecha">
+        <ion-item>
+          <ion-label color="primary" stacked>Seleccionar fechas</ion-label>
+          <ion-datetime  displayFormat="DD MMM YYYY" [formControl]="controldate" placeholder="Fechas"></ion-datetime>
+        </ion-item>  
+      <div [hidden]="!cont" class="chips">
+        <ion-chip *ngFor="let dat of date" class="selectDate">
+          <ion-label>{{dat}}</ion-label>
+          <button ion-button (click)="delete(dat)">
+          <ion-icon name="close"></ion-icon></button>
+        </ion-chip>
+      </div>
+    </div> 
+    <!--Texto-->
+    <div [hidden]="fecha">
+      <ion-item>
+        <ion-label color="primary" stacked>Añadir opción</ion-label>
+        <ion-input type="text" placeholder="Nueva opción"></ion-input>
+      </ion-item> 
+    </div> 
 
-    <ion-item>
-      <ion-label color="primary" stacked>Seleccionar fechas</ion-label>
-      <ion-input type="text" placeholder="Fechas"></ion-input>
-    </ion-item>   
+    <!--Otras opciones-->
     <ion-item>
       <ion-label color="primary" stacked>Ubicación</ion-label>
       <ion-input type="text" placeholder="Opcional"></ion-input>
@@ -18,23 +46,26 @@
       <ion-label color="primary" stacked>Añadir Comentario</ion-label>
       <ion-input type="text" placeholder="Opcional"></ion-input>
     </ion-item> 
-    </div>
-
-Configuracion
-    
-    <div>
-      <ion-item class="opciones">
-        <ion-label>Habilitar voto negativo</ion-label>
-        <ion-checkbox color="primary" checked="false"></ion-checkbox>
-      </ion-item>
-      <ion-item class="opciones">
-        <ion-label>Encuesta privada</ion-label>
-        <ion-checkbox color="primary" checked="false"></ion-checkbox>
-      </ion-item>
-    <ion-item class="opciones">
-      <ion-label>Solo un voto por participante</ion-label>
-      <ion-checkbox color="primary" checked="false"></ion-checkbox>
-    </ion-item>
   </div>
+
+    <!--Habilitar/Deshabilitar-->
+    <div class="part">
+      <ion-item class="opciones" no-lines>
+        <ion-label><ion-icon class="space" name="close-circle"></ion-icon>Habilitar voto negativo</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+      <ion-item class="opciones" no-lines>
+        <ion-label><ion-icon class="space" name="lock"></ion-icon>Encuesta privada</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+    <ion-item class="opciones" no-lines>
+      <ion-label><ion-icon class="space" name="document"></ion-icon>Solo un voto por participante</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+  </div>
+ 
+</div>
+
    
 </ion-content>

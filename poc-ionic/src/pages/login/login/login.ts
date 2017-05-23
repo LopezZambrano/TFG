@@ -37,6 +37,4 @@ export class LoginPage {
     this.nav.setRoot(RegisterPage); 
   }
 
- 
-
 } 
