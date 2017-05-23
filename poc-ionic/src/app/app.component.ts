@@ -18,7 +18,7 @@ import{ PollPage } from '../pages/poll/poll'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = PollPage;
+  rootPage = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
