@@ -9,7 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {LoginPage} from '../pages/login/login/login'
+import {RegisterPage} from '../pages/login/register/register'
 import{ PollPage } from '../pages/poll/poll'
+
+import { Header } from '../shared/component/header/header'
 
 
 @Component({

@@ -1,4 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { NavParams } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
+
 import {User} from '../../object/user'
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/catch';
@@ -10,50 +13,59 @@ import 'rxjs/add/operator/catch';
 
 export class PollPage {
 
+   constructor(public navCtrl: NavController,
+              private navParams: NavParams){
+                 this.type = navParams.get('type');
+              }
+
     controltype = new FormControl();
     controldate = new FormControl();
+    controltext = new FormControl();
     type : string;
     fecha : boolean = false;
     date : string[]=[];
+    text: string[] =[];
     cont : boolean = false;
 
-    delete(dat){
+  deleteDat(dat){
       var index = this.date.indexOf(dat);
       if (index > -1) {
         this.date.splice(index, 1);
       }
     }
 
-    mostrarFechas(){
-      this.controldate.valueChanges
-            .catch((err) => {
-                return [];
-            })
-            .subscribe((date:string) => {
-                  this.date.push(date);
-                  this.cont = true;
-                }
-            )}
+    deleteText(text){
+      var index = this.text.indexOf(text);
+      if (index > -1) {
+        this.text.splice(index, 1);
+      }
+    }
 
-            
+    mostrarTextos(){
+
+      this.text.push(this.controltext.value);
+      this.controltext.reset();
+      this.cont=true;
+    
+      }
+
     
 
+    mostrarFechas(){
+     
+        this.date.push(this.controldate.value);
+        this.cont = true;
+
+      
+      }
+
+            
     ionViewDidEnter(){
-        this.controltype.valueChanges
-            .catch((err) => {
-                return [];
-            })
-            .subscribe((type:string) => {
-                this.type = type;
-                if (this.type == "fecha") {
-                  this.fecha = true;
-                  this.mostrarFechas();
-                } else {
-                  this.fecha = false;
-              }
-            });
 
-
+      console.log(this.type)
+      if (this.type == 'fecha'){
+        this.fecha = true;
+      }
 
 
     }

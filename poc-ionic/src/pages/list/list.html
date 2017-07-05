@@ -1,20 +1,12 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Mis eventos</ion-title>
-  </ion-navbar>
-</ion-header>
-
+<page-header></page-header>
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="calendar"></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
+  <ion-item *ngFor="let poll of polls" (click)="showMore()">
+    <p class="title">{{poll.title}}<br>
+      <span class="grey">{{poll.date | date: 'longDate'}}</span>
+    </p>
+
+      
+
+
+  </ion-item>
 </ion-content>

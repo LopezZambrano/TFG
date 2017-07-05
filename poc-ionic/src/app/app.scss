@@ -14,3 +14,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.alert-md .alert-wrapper{
+    border-radius: 30px;
+}
+
+.alert-md .alert-title{
+    color: $blue-text;
+    font-size: 22px;
+}
+
+.alert-md .alert-radio-icon{
+    margin-left: 10px;
+}
+
+
+.item-ios.item-block .item-inner,
+.item-md.item-block .item-inner{
+    padding-right: 0px;
+}
+
+.item-label-stacked .text-input-md, .item-label-floating .text-input-md{
+    width: 100%;
+}

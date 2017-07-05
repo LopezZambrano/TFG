@@ -1,4 +1,7 @@
 page-poll{
+
+    font-family: "Tahoma", "Geneva", sans-serif;
+
     h1{
         background: #3398DC;
         color: white;
@@ -8,9 +11,16 @@ page-poll{
         margin: 0;
     }
 
-    .title{
-        font-size: 18px;
-        color:#3398DC;
+    .title > input {
+        font-size: 25px;
+        border: 2px solid;
+        height: 50px;
+        border-color: #3398DC;
+        padding: 10px;
+    }
+
+    .title.input.input{
+        padding-top: 59px;
     }
 
     .select-md,
@@ -80,7 +90,44 @@ page-poll{
 
     .close{
         color:white;
-
     }
+
+    .save{
+        padding-top:20px;
+        text-align: center;
+    }
+
+    .add{
+        text-align: right;
+    }
+
+    .button{
+        text-transform: none;
+    }
+
+    .add.button{
+        padding:7px;
+        height: 27px;
+    }
+
+.label,
+.label[stacked],
+.text-input{
+    font-size: 17px;
+}
+
+.selectDate.chip.chip-md.text{
+    display: flex;
+    margin: 6px 6px;
+    width: 90%;
+    height: 30px;
+    line-height: 25px;
+}
+
+.chips.text{
+    padding-left: 20px;
+}
+
+
 
 }

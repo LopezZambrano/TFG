@@ -13,11 +13,8 @@ export class AuthService {
  
   public login(email:string, password:string) {
     
-    if (email === null || password === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-        return this.access = (password === 'pass' && email === 'email');
-    }    
+        return true;
+  
 
   }
 

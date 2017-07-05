@@ -1,0 +1,100 @@
+page-header {
+
+  .bar-button-ios[icon-only].padding-right,
+  .bar-button-md[icon-only].padding-right {
+    padding-right: 0px;
+  }
+ 
+  .bar-button-md[icon-only] ion-icon.ion-md-help-circle,
+  .bar-button-ios[icon-only] ion-icon.ion-ios-help-circle {
+    background-size: contain;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 50px;
+    color:white;
+  }
+
+  .bar-button-md[icon-only] ion-icon.ion-md-menu,
+  .bar-button-ios[icon-only] ion-icon.ion-ios-menu{
+    background-size: contain;
+    height: inherit;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 50px;
+    color:white;
+  }
+
+  .bar-button-md[icon-only] ion-icon.ion-md-arrow-back,
+  .bar-button-ios[icon-only] ion-icon.ion-ios-arrow-back{
+    background-size: contain;
+    height: inherit;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 50px;
+    color:white;
+  }
+
+
+  .toolbar-background-ios,
+  .toolbar-background-md {
+    background: color($colors, primary);
+  }
+
+  span{
+      color:white;
+  }
+
+  p.icon {
+    position: absolute;
+    top: 63%;
+    font-size:15px;
+    text-transform: uppercase;
+  }
+
+  .icono-ayuda {
+    position: absolute;
+    right: 55px;
+    top: -6px;
+  }
+
+  .toolbar-title.inherit {
+    height: inherit;
+    text-align: center;
+  }
+
+  .toolbar-title .bar-buttons-ios,
+  .toolbar-title .bar-buttons-md {
+    height: inherit;
+  }
+
+  .toolbar-title .bar-buttons-ios .bar-button-ios[icon-only],
+  .toolbar-title .bar-buttons-md .bar-button-md[icon-only] {
+    height: inherit;
+  }
+
+  .icono-ayuda {
+    right: 10px;
+    top: -20px;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: color($colors, primary);
+  }
+
+  .header-ios .titulo .toolbar-background-ios, .footer-ios .titulo .toolbar-background-ios,
+  .header-md .titulo .toolbar-background-md, .footer-md .titulo .toolbar-background-md {
+    background: color($colors, primary);
+  }
+
+  .toolbar-content-md {
+    text-align: center;
+  }
+
+  .toolbar-title-ios,
+  .toolbar-title-md {
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+  }
+}

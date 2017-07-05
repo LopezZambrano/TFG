@@ -1,0 +1,81 @@
+page-shortcut{
+
+font-family: "Tahoma", "Geneva", sans-serif;
+
+background-color: lightgrey;
+color: black;
+font-size:10px;
+
+.title{
+   color: #3398DC;
+   font-size: 20px;
+   font-weight: 500;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color:white;
+    height: 135px;
+    width: 100%;
+    padding: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    border-radius: 30%;
+}
+
+img{
+    min-height: 60px;
+   // width: 40px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+}
+
+.perfil{
+    background-image: url(../assets/imgs/perfil.png);
+
+
+}
+
+.encuesta{
+    background-image: url(../assets/imgs/encuesta.png);
+}
+
+.nueva{
+    background-image: url(../assets/imgs/nueva.png);
+}
+
+.amigos{
+    background-image: url(../assets/imgs/amigos.png);
+}
+
+
+.margin{
+    margin-bottom: 3px;
+}
+
+.icon {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    align-self: baseline;
+}
+    .ion-ios-wheel,
+    .ion-md-wheel {
+        background-image: green;
+        background-size: contain;
+        height: 24px;
+        width: 24px;
+        background-repeat: no-repeat;
+    }
+
+.center{
+        text-align: center;
+}
+
+
+}

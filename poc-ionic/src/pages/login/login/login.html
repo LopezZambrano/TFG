@@ -1,43 +1,33 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content class="login-content" padding>
+<div class="image"></div>
 
-  <ion-row class="logo-row">
+<div class="padding">
+    <p class="title">Bienvenido a MyCalendar</p>
+    <span class="desc"> Descripción</span>
+</div>
 
-    <ion-col width-67>
-      <img class="image" src="assets/imgs/logo1.png">
-    </ion-col>
- 
-  </ion-row>
-  <div class="login-box">
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-            
-            <ion-item>
-              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="email" required></ion-input>
-            </ion-item>
-            
-            <ion-item>
-              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="password" required></ion-input>
-            </ion-item>
-            
-          </ion-list>
-        </ion-col>
-      </ion-row>
+<div class="form">
 
-      <span>{{texto}}</span>
-      
-      <ion-row>
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" (click)="login()">Login</button>
-          <button ion-button class="submit-btn"  (click)="createAccount()">Crear una cuenta</button>
-        </ion-col>
-      </ion-row>
-    
-  </div>
+    <form [formGroup]="loginForm">
+        <ion-item no-lines class="item-outline">
+            <ion-label stacked>Usuario: </ion-label>
+            <ion-input [ngClass]="{'error': error.user}" formControlName="user" type="user"></ion-input>
+        </ion-item>
 
-</ion-content>
+        <ion-item no-lines>
+            <ion-label stacked>Contraseña:</ion-label>
+            <ion-input [ngClass]="{'error': error.password}" formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <div class="link">
+            <a class="orange" href="">¿Olvidaste tu contraseña?</a><br>
+            <span class="orange" (click)="register()">Crear cuenta</span>
+        </div>
+
+    </form>
+</div>
+
+
+
+<div class="but">
+    <button class="blue" ion-button outline (click)="login()">Inciar sesión</button>
+</div>

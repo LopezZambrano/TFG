@@ -1,81 +1,159 @@
 page-login {
- 
-  span {
-    text-align: center;
-  }
 
-  h1{
-    text-align: center;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: 0;
-    background: #3398DC;
-  }
-
-  .login-content {
-
-   .scroll-content{
-      padding: 0px;
-      margin:0;
-    }
-    
-    
-    .login-box {
-      background-image: url(https://www.collaborativedrug.com/wp-content/uploads/2013/07/CDD-event-calendar.jpg);
-      border-radius: 10px; 
+    .desc {
+        color: $grey-text;
+        font-size: 20px;
     }
 
-    .image {
-      border-radius: 20%;
-      width: 125px;
-      height: 165px;
-      padding-bottom: 5px;
+    .image{
+        width: 100%;
+        height: 35%;
+        background-image: url(../../assets/imgs/logo1.png);
+        background-size: cover;
     }
 
-    ion-row {
-       align-items: center;
-       text-align: center;
-     
-     }
- 
-     ion-item {
-         border-radius: 30px !important;
-         padding-left: 30px !important;
-         font-size: 0.9em;
-         margin-bottom: 2px;
-         border: 3px solid #1B4F72;
-         box-shadow: none !important;
+    .padding {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        padding-left: 14px;
+        padding-right: 14px;
+        text-align: center;
+    }
 
-     }
- 
-     .signup-col {
-       margin: 0px 16px 0px 16px;
-     }
- 
- 
-     .submit-btn {
-       background: #1B4F72;
-       border-radius: 30px !important;
-       border: 1px solid #85C1E9 ;
-       height: 35px;
-     }
- 
-     .register-btn {
-       color: black;
-       font-size: 1em;
-     }
-  }
-  
-  .col{
-    padding: 2px;
-  }
+    .title{
+        color: $blue-text;
+        margin: 0px;
+        padding-bottom: 5px;
+        font-size: 28px;
 
-  .toolbar-background{
-    background: #3398DC;
-    border-style: none;
-  }
-    
-  
- 
+    }
+
+    .scroll-content{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+
+    .item{
+    padding-left: 0px;
+    }
+
+
+    .ion-page.show-page {
+        opacity: 1;
+        background: white;
+    }
+
+    .form{
+        padding-top: 6px;
+        padding-left: 15%;
+        padding-right: 15%;
+        float:right;
+        text-align: right;
+        width: 100%;
+    }
+
+
+    .scroll-content{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .item-input .label, .item-select .label, .item-datetime .label{
+        color: $blue-text;
+        margin: 0px;
+        font-size: $font-medium;
+    }
+
+    .help {
+        color: $grey-text;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+
+    span {
+        color: $blue-text;
+    }
+
+    .error > input {
+        border: 1.3px solid $error;
+    }
+
+    .error{
+        color: $error;
+    }
+
+    input:nth-child(2){
+        border-color: transparent;
+    }
+
+    .orange{
+        color: $orange;
+        text-decoration: underline;
+    }
+
+
+    .link {
+        font-size: 15px;
+        text-align: right;
+        padding-bottom: 20px;
+
+    }
+
+    .button {
+        border: 1.3px solid $blue-text;
+        text-transform: none;
+        padding: 8px;
+        height: 34px;
+        width: 60%;
+        max-width: none;
+        margin: 6px;
+        text-align: center;
+        font-size: 18px;    
+        opacity:1;
+    }
+
+    .button-outline 
+    .button-effect {
+        background-color: transparent;
+    }
+
+
+    .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner{
+        border-bottom-color:transparent;
+        box-shadow: none;
+    }
+
+    .item.item-input.input-has-focus .item-inner{
+        box-shadow: none;
+    }
+
+    .item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner{
+        border-bottom-color:transparent;
+        box-shadow: none;
+    }
+
+    .text-input{
+        border: 1.3px solid $blue-text;
+        height: 34px;
+        margin:0;
+    }
+
+    .but{
+        text-align: center;
+    }
+
+    .text-input.text-input-ios{
+        margin: 0px;
+    }
+
+    ion-input{
+        text-align: center;
+    }
+
+
+
+
+
+
 }
