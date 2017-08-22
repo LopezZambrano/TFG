@@ -37,3 +37,7 @@
 .item-label-stacked .text-input-md, .item-label-floating .text-input-md{
     width: 100%;
 }
+
+button>span{
+    text-transform: none;
+}

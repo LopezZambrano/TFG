@@ -2,86 +2,91 @@
 
 <ion-content>
 
-  <!--Titulo-->
-  <div>
+  <form [formGroup]="pollForm">
+    <!--Titulo-->
     <div class="part">
       <div>
         <ion-item no-lines>
-          <ion-input class="title"type="text" placeholder="Título">Título</ion-input>
+          <ion-input class="title" [ngClass]="{'error': error}" type="text" placeholder="Título" formControlName="title">Título</ion-input>
         </ion-item>
       </div>
       <!--Fechas-->
       <div *ngIf="fecha">
         <ion-item>
           <ion-label color="primary" stacked>Seleccionar fechas</ion-label>
-          <ion-datetime  displayFormat="DD MMM YYYY" [formControl]="controldate" placeholder="Fechas"></ion-datetime>
-        </ion-item>  
+          <ion-datetime displayFormat="DD/MM/YYYY" [formControl]="controldate" placeholder="Fechas"></ion-datetime>
+        </ion-item>
         <div class="add">
           <button class="add" ion-button (click)="mostrarFechas()">Añadir</button>
         </div>
-      <div [hidden]="!cont" class="chips">
-        <ion-chip *ngFor="let dat of date" class="selectDate">
-          <ion-label>{{dat}}</ion-label>
-          <button ion-button (click)="deleteDat(dat)">
+        <div [hidden]="!cont" class="chips">
+          <ion-chip *ngFor="let dat of option" class="selectDate">
+            <ion-label>{{dat.option | date: 'dd-MM-yyyy'}}</ion-label>
+            <button class="dateChip" ion-button (click)="deleteDat(dat)">
           <ion-icon name="close"></ion-icon></button>
-        </ion-chip>
+          </ion-chip>
+        </div>
       </div>
-    </div> 
-    <!--Texto-->
-    <div *ngIf="!fecha" >
-      <form  (ngSubmit)="mostrarTextos()">
-        <ion-item>
-          <ion-label color="primary" stacked>Añadir opción</ion-label>
-          <ion-input [formControl]="controltext" type="text"  placeholder="Nueva opción"></ion-input>
-        </ion-item> 
-      </form>
-      <div class="add">
-        <button class="add" ion-button (click)="mostrarTextos()">Añadir</button>
-      </div>
-      <div [hidden]="!cont" class="chips" [ngClass]="{'text': !fecha}">
-        <ion-chip [ngClass]="{'text': !fecha}" *ngFor="let tex of text" class="selectDate">
-          <ion-label>{{tex}}</ion-label>
-          <button ion-button (click)="deleteText(tex)">
+      <!--Texto-->
+      <div *ngIf="!fecha" class="margin">
+        <form (ngSubmit)="mostrarTextos()">
+          <ion-item no-lines>
+            <ion-label color="primary" stacked>Añadir opción</ion-label>
+            <ion-input [formControl]="controltext" type="text" placeholder="Nueva opción"></ion-input>
+          </ion-item>
+        </form>
+        <div class="add">
+          <button class="add" ion-button (click)="mostrarTextos()">Añadir</button>
+        </div>
+        <div [hidden]="!cont" class="chips" [ngClass]="{'text': !fecha}">
+          <ion-chip [ngClass]="{'text': !fecha}" *ngFor="let tex of option" class="selectDate">
+            <ion-label>{{tex.option}}</ion-label>
+            <button ion-button (click)="deleteText(tex)">
           <ion-icon name="close"></ion-icon></button>
-        </ion-chip>
+          </ion-chip>
+        </div>
       </div>
-    </div> 
 
 
-    <!--Otras opciones-->
-
-    <ion-item>
-      <ion-label color="primary" stacked>Ubicación</ion-label>
-      <ion-input type="text" placeholder="Opcional"></ion-input>
-    </ion-item> 
-    <ion-item>
-      <ion-label color="primary" stacked>Añadir Comentario</ion-label>
-      <ion-input type="text" placeholder="Opcional"></ion-input>
-    </ion-item> 
-  </div>
+      <!--Otras opciones-->
+      <details>
+        <summary>Añadir más detalles </summary>
+        <ion-item no-lines>
+          <ion-label color="primary" stacked>Ubicación</ion-label>
+          <ion-input type="text" placeholder="Opcional" formControlName="ubication"></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label color="primary" stacked>Añadir Comentario</ion-label>
+          <ion-input type="text" placeholder="Opcional" formControlName="commentary"></ion-input>
+        </ion-item>
+      </details>
+    </div>
 
     <!--Habilitar/Deshabilitar-->
     <div class="part">
-      <ion-item class="opciones" no-lines>
-        <ion-label><ion-icon class="space" name="close-circle"></ion-icon>Habilitar voto negativo</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-      <ion-item class="opciones" no-lines>
-        <ion-label><ion-icon class="space" name="lock"></ion-icon>Encuesta privada</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-    <ion-item class="opciones" no-lines>
-      <ion-label><ion-icon class="space" name="document"></ion-icon>Solo un voto por participante</ion-label>
-      <ion-toggle checked="false"></ion-toggle>
-    </ion-item>
-
-  </div>
+      <details>
+        <summary>Opciones de voto</summary>
+        <ion-item class="opciones" no-lines>
+          <ion-label>
+            <ion-icon class="space" name="close-circle"></ion-icon>Habilitar voto negativo</ion-label>
+          <ion-toggle checked="false" formControlName="negativeVote"></ion-toggle>
+        </ion-item>
+        <ion-item class="opciones" no-lines>
+          <ion-label>
+            <ion-icon class="space" name="document"></ion-icon>Solo un voto por participante</ion-label>
+          <ion-toggle checked="false" formControlName="oneVote"></ion-toggle>
+        </ion-item>
+        <ion-item class="opciones" no-lines>
+          <ion-label>
+            <ion-icon class="space" name="lock"></ion-icon>Encuesta privada</ion-label>
+          <ion-toggle checked="false" formControlName="private"></ion-toggle>
+        </ion-item>
+      </details>
+    </div>
+  </form>
 
   <div class="save">
-    <button ion-button color="secondary" (click)="mostrarTextos()">Guardar encuesta</button>
+    <button ion-button color="secondary" (click)="save()">Guardar encuesta</button>
   </div>
-</div>
 
-
-   
 </ion-content>

@@ -1,0 +1,24 @@
+<page-header></page-header>
+<ion-content>
+<!--    <div class="amigos">
+    </div>-->
+    <ion-item no-lines>
+        <ion-label>
+            <ion-icon name="contacts"></ion-icon>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]=query (keyup)=filter() placeholder="Buscador amigos"></ion-input>
+    </ion-item>
+
+    <div *ngIf="filteredList.length > 0">
+        <ion-item *ngFor="let item of filteredList">
+            <div class="container">
+            <div class="margin">
+                {{item.name}}
+            </div>
+            <div>
+                <button ion-button color="primary" (click)="select(item)">Añadir</button>
+            </div>
+            </div>
+        </ion-item>
+    </div>
+</ion-content>

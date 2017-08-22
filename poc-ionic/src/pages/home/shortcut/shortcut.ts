@@ -3,6 +3,7 @@ import { NavController, Platform } from 'ionic-angular';
 
 import { AlertController } from 'ionic-angular';
 import { ProfilePage } from '../../profile/profile'
+import { MyFriendsPage } from '../../my-friends/my-friends'
 import { PollPage } from '../../poll/poll'
 import { ListPage } from '../../list/list'
 
@@ -23,6 +24,7 @@ export class Shortcut implements OnInit {
             private alertCtrl: AlertController) { }
 
   ngOnInit() {
+
   }
 
   goTo(page) {
@@ -60,6 +62,8 @@ export class Shortcut implements OnInit {
 
     } else if (page == 'Mis encuestas'){
       this.navCtrl.push(ListPage);
+    } else if(page == 'Mis amigos'){
+      this.navCtrl.push(MyFriendsPage);
     }
   }
 

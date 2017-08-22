@@ -3,7 +3,7 @@ page-poll{
     font-family: "Tahoma", "Geneva", sans-serif;
 
     h1{
-        background: #3398DC;
+        background: $blue-text;
         color: white;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -15,18 +15,20 @@ page-poll{
         font-size: 25px;
         border: 2px solid;
         height: 50px;
-        border-color: #3398DC;
+        border-color: $blue-text;
         padding: 10px;
+        color: $blue-text;
+        margin-bottom: 25px;
     }
 
     .title.input.input{
-        padding-top: 59px;
+        margin-top: 65px;
     }
 
     .select-md,
     .select-ios {
         border: 2px solid;
-        border-color: #3398DC;
+        border-color: $blue-text;
         padding: 8px;
         width: 77%;
         max-width: none;
@@ -61,7 +63,9 @@ page-poll{
         font-size: 13px;
         line-height: 20px;
         color: white;
-        background: #47A2DF;
+        background: $blue-text;
+        margin-left: 10px;
+        width: 46%;
      }
 
      ion-chip .button {
@@ -70,6 +74,11 @@ page-poll{
         height: 20px;
         border-radius: 50%;
         font-size: 0;
+        height: 27px;
+     }
+
+     ion-chip > ion-label{
+         padding-left: 10px;
      }
 
     .chip-ios > ion-label {
@@ -80,11 +89,13 @@ page-poll{
 
     .chips{
         padding-left: 4px;
+        padding-bottom: 20px;
+        padding-top: 5px;
     }
 
     .space{
         padding-right: 8px;
-        color: #3398DC;
+        color: $blue-text;
         font-size: 1.3em;
     }
 
@@ -119,15 +130,56 @@ page-poll{
 .selectDate.chip.chip-md.text{
     display: flex;
     margin: 6px 6px;
-    width: 90%;
+    width: 100%;
     height: 30px;
     line-height: 25px;
 }
 
 .chips.text{
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+.error > input {
+    border: 2px solid $error;
+}
 
+.text-input{
+    border: 1.2px solid lightslategrey;
+    height: 36px;
+    padding: 5px;
+}
 
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+    .item-ios.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner,
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner,
+    .item-md.item-input.input-has-focus .item-inner{
+        border-bottom-color: transparent;
+        box-shadow: none;
+        color: $grey-text;
+    }
+
+.label{
+    margin:0;
+}
+
+.dateChip.disable-hover.button.button.button-default.button-default{
+    height: 19px;
+}
+
+details summary::-webkit-details-marker {
+    color: $blue-text;
+    font-size: 25px;
+}
+summary{
+    color: $blue-text;
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+
+}
+
+.margin{
+    margin-bottom: 20px;
+}
 }

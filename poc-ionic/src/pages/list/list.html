@@ -1,12 +1,12 @@
 <page-header></page-header>
 <ion-content>
-  <ion-item *ngFor="let poll of polls" (click)="showMore()">
-    <p class="title">{{poll.title}}<br>
-      <span class="grey">{{poll.date | date: 'longDate'}}</span>
-    </p>
 
-      
-
-
-  </ion-item>
+  <div class="warn" *ngIf="polls.length==0"> ¡Aún no has creado ninguna encuesta!</div>
+  <div *ngIf="polls">
+    <ion-item *ngFor="let poll of polls" (click)="showMore(poll)">
+      <p class="title">{{poll.title}}<br>
+        <span class="grey"> Participantes: </span>
+      </p>
+    </ion-item>
+  </div>
 </ion-content>

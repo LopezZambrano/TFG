@@ -1,31 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    
-        <ion-buttons left [hidden]="!back">
-        <button ion-button icon-only>
+
+    <ion-buttons left [hidden]="!back || login">
+      <button ion-button icon-only>
             <ion-icon name="menu"></ion-icon>
         </button>
-        </ion-buttons>
-        <ion-buttons left [hidden]="back" (click)="navToBack()">
-        <button ion-button icon-only >
+    </ion-buttons>
+    <ion-buttons left [hidden]="back || login" (click)="navToBack()">
+      <button ion-button icon-only>
             <ion-icon name="arrow-back"></ion-icon>
         </button>
-        </ion-buttons>
-    
+    </ion-buttons>
+
     <ion-title class="inherit">
       <ion-buttons>
         <button ion-button icon-only>
           <ion-icon name="calendar"></ion-icon>
         </button>
       </ion-buttons>
-      <span>MyCalendar</span>
+      <span>PlanGo</span>
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only class="padding-right" (click)="navToHelpPage()">
+      <button [hidden]="login" ion-button icon-only class="padding-right" (click)="navToHelpPage()">
         <ion-icon name="help-circle"></ion-icon>
       </button>
     </ion-buttons>
-    
+
   </ion-toolbar>
-  
+
 </ion-header>

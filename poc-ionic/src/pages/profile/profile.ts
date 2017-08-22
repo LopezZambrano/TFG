@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
-import { NavParams } from 'ionic-angular';
-
-import {User} from '../../object/user'
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../shared/services/auth-service'
+import { User } from '../../shared/models/user'
 
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
-export class ProfilePage {
 
+export class ProfilePage implements OnInit{
 
+ constructor(private auth: AuthService){}
 
-  user =  {email: 'pepe@gmail.com',
-           password: '1234',
-           foto: '1',
-           name: 'Pepe'}
+ user: User;
+
+  ngOnInit(){
+    this.auth.getUser().subscribe(user=> this.user = user);
+  }
 }

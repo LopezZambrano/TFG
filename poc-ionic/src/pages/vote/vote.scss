@@ -1,0 +1,27 @@
+page-vote{   
+    .scroll-content{
+        padding-top: 65px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .save{
+        padding-top:20px;
+        text-align: center;
+        text-transform: none;
+    }
+
+    .item{
+        font-size: $font-xlarge;
+        color:$grey-text;
+        padding: 0px;
+    }
+
+    button{
+        padding: 0;
+    }
+
+    ion-label{
+        white-space: initial;
+    }
+}

@@ -1,32 +1,45 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {User} from '../object/user'
+import {User} from '../models/user'
+import { HttpCustomService } from '../services/http-custom.service'
  
  
 @Injectable()
 export class AuthService {
-  email: string;
-  password: string;
-  access: boolean;
-  registerCredentials = {name: '', email: '', password: '' };
- 
-  public login(email:string, password:string) {
-    
-        return true;
-  
 
+constructor(public http: HttpCustomService){}
+
+  user: User;
+ 
+  login(email:string, password:string): Observable<any> {
+      let url = `http://localhost:3000/user/login`;
+      let body = {"email": email, "password":password};
+        return this.http.doPost(url, body)
+            .map((res) => {
+                this.user = res.json();
+                return res.json();
+            })
   }
 
- public register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      // At this point store the credentials to your backend!
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      });
-    }
+ register(credentials) {
+      let url = `http://localhost:3000/user/register`;
+      let body = {"name": credentials.user, "email": credentials.email, "password":credentials.password};
+        return this.http.doPost(url, body)
+            .map((res) => {
+                return res.json();
+            })
+  }
+
+  getUser(){
+    return Observable.of(this.user);
+  }
+
+  getAllUsers(){
+    let url = `http://localhost:3000/user`;
+        return this.http.doGet(url)
+            .map((res) => {
+                return res.json();
+            })
   }
 }

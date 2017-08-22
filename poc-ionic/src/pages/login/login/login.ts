@@ -30,40 +30,49 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      'user': [null, Validators.required],
-      'password': [null, Validators.required]
+      'user': ['s@s.es', Validators.required],
+      'password': [12345678, Validators.compose([Validators.required, Validators.minLength(8)])]
     });
   }
 
   verifyLogin() {
+    this.error.user = false;
+    this.error.password = false;
     if (!this.loginForm.controls['user'].valid) {
       this.error.user = true
     } 
     if (!this.loginForm.controls['password'].valid) {
       this.error.password = true
     }
+    if (!(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(this.loginForm.controls['user'].value))) {
+        this.error.user = true
+    }
   }
 
   login() {
 
+    this.verifyLogin();
+
     if (!this.error.user && !this.error.password) {
 
-      if (this.auth.login(this.email, this.password)) {
-        this.nav.setRoot(HomePage);
-      } else {
-        let alert = this.alertCtrl.create({
+      this.auth.login(this.loginForm.controls['user'].value, this.loginForm.controls['password'].value)
+        .subscribe(res=>{
+          console.log(res)
+          this.nav.setRoot(HomePage);
+        },
+        err=>{
+          let alert = this.alertCtrl.create({
           title: "Fallo de autenticación",
           subTitle: "Por favor introduzca de nuevo el email y contraseña",
           buttons: ['OK']
         });
         alert.present();
-
-      }
+      })
     }
   }
 
   register() {
-    this.nav.setRoot(RegisterPage);
+    this.nav.push(RegisterPage);
   }
 
   createAccount() {

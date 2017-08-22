@@ -1,0 +1,72 @@
+page-my-friends{
+        .scroll-content{
+        padding-top: 80px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .item-input .label, .item-select .label, .item-datetime .label{
+        color: $blue-text;
+        margin: 0px;
+        font-size: $font-large;
+    }
+
+        .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner{
+        border-bottom-color:transparent;
+        box-shadow: none;
+    }
+
+    .item.item-input.input-has-focus .item-inner{
+        box-shadow: none;
+    }
+
+    .item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner{
+        border-bottom-color:transparent;
+        box-shadow: none;
+    }
+
+    .text-input{
+        border: 1.3px solid $blue-text;
+        height: 34px;
+        margin:0;
+        width: 100%;
+    }
+        .text-input.text-input-ios{
+        margin: 0px;
+    }
+
+    .item{
+        padding-left: 0;
+    }
+
+    a{
+        color:$grey-text;
+    }
+
+    ion-icon{
+        padding-right: 8px;
+    }
+
+    .right{
+        text-align: right;
+    }
+
+    .container {
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .margin{
+        margin-top: 6px;
+    }
+
+    .amigos{
+    background-image: url(../assets/img/amigos.png);
+    background-size: contain;
+    height: 70px;
+    text-align: center;
+    background-repeat: no-repeat;
+        background-position: center;
+    }
+
+}

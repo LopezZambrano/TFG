@@ -6,8 +6,10 @@ export interface User {
      //Contraseña
     password: string;
     //Imagen
-    foto: string;
+    foto?: string;
      //Edad
-     age:number;
+     age?:number;
+     //Identificador
+     _id: number;
 
 }
