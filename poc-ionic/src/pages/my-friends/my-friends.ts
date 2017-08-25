@@ -4,9 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { User } from '../../shared/models/user'
-
 import { AuthService } from '../../shared/services/auth-service'
-
+import { FriendService } from '../../shared/services/friend-service'
 
 
 
@@ -16,39 +15,87 @@ import { AuthService } from '../../shared/services/auth-service'
 })
 export class MyFriendsPage implements OnInit {
 
-    constructor(public authService: AuthService){}
-
+    constructor(public authService: AuthService,
+        public friendService: FriendService) { }
 
 
     public query = '';
     public filteredList = [];
     public elementRef;
 
-    users: User[];
+
+    myFriends: User[] = [];
+    otherUsers: User[] = [];
+    myUser: User;
+    search: boolean = true;
 
     ngOnInit() {
         this.authService.getAllUsers()
-        .subscribe(users=>{
-            this.users = users;
+            .subscribe(users => {
+                this.friendService.getMyFriends(this.myUser._id).subscribe(friends => {
+                    if (friends){
+                        this.getMyFriendsForId(users, friends.idFriends);
+                        this.getOtherUserForId(users, friends.idFriends);
+                    } else {
+                        this.otherUsers = users;
+                    }
+
+                    console.log(this.myFriends)
+                })
+            },
+            err => {
+                console.log(err)
+            })
+
+        this.authService.getUser().subscribe(user => {
+            this.myUser = user;
         },
-        err=>{
-            console.log(err)
-        })
+            err => {
+                console.log(err)
+            })
+    }
+
+
+    getOtherUserForId(allUsers, idFriends) {
+        let i;
+        for (i = 0; i < idFriends.length; i++) {
+            allUsers = allUsers.filter(user => user._id !== idFriends[i])
+            this.otherUsers = allUsers;
+        }
+    }
+
+    getMyFriendsForId(allUsers, idFriends) {
+        let i;
+        for (i = 0; i < idFriends.length; i++) {
+            this.myFriends.push(allUsers.find(user => user._id == idFriends[i]));
+
+        }
     }
 
 
     filter() {
+        this.search = true;
         if (this.query !== "") {
-            this.filteredList = this.users.filter(function (el) {
+            this.filteredList = this.otherUsers.filter(function (el) {
                 return el.name.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
             }.bind(this));
+            if (this.filteredList.length == 0){
+                this.search = false;
+            }
         } else {
             this.filteredList = [];
+
         }
     }
 
     select(item) {
-        this.query = item;
+        this.query = item.name;
+        this.filteredList = [];
+        this.friendService.addFriend(item._id, this.myUser._id).subscribe(res => console.log(res))
+    }
+
+    back(){
+        this.query = '';
         this.filteredList = [];
     }
 

@@ -1,0 +1,14 @@
+<page-header></page-header>
+
+<ion-content>
+<ion-tabs #myTabs tabsPlacement="top">
+
+  <ion-tab [root]="tab1Root" [rootParams]="{newPoll: newPoll, onComplete: move}"
+  tabIcon="check" tabTitle="Crear" enabled="currentStep==1"></ion-tab>
+
+  <ion-tab [root]="tab2Root" [rootParams]="{newPoll: newPoll, onComplete: move, params: params}"
+  tabIcon="check" tabTitle="Enviar" enabled="currentStep==2"></ion-tab>
+
+</ion-tabs>
+
+</ion-content>

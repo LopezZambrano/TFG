@@ -1,0 +1,141 @@
+page-newPoll{
+
+
+    .scroll-content{
+        margin-top:65px
+    }
+    .header-md::after, 
+    .tabs-md[tabsPlacement="top"] > .tabbar::after, 
+    .footer-md::before, 
+    .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+        background: white;
+    }
+
+    .tabs-md .tabbar,
+    .tabs-ios .tabbar{
+        background: white;
+        padding-left: 16%;
+        padding-right: 16%;
+    }
+
+    .content-ios{
+        background-color: white;
+    }
+
+
+    .tab-button{
+        margin:0px;
+    }
+
+    .tabs-md .tab-button{
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .tabs-ios .tab-button{
+        min-height: 41px;
+        max-width: 30%;
+        margin-right: 5px;
+        margin-left: 5px;
+        height: 82px;
+    }
+
+    .ion-page.show-page {
+        opacity: 1;
+        background: white;
+    }
+
+    .cont{
+         padding-left: 45px;
+         padding-right: 45px;
+         font-size: $font-large;
+         color: $grey-text;
+         text-align: center;
+     }
+
+
+    .tabs-ios[tabsPlacement=top] .tabbar{
+        border-bottom: white;
+        border-top: white;
+        margin-top: 64px;
+    }
+
+
+    .tab-button-text, .tab-button-icon{
+        white-space: initial;
+    }
+
+    .tab-disabled ion-icon,
+    .tab-disabled span{
+        opacity: 1;
+    }
+
+    .tabs-md .tab-button-text{
+         font-size: $font-semi-medium; 
+    }
+
+    .tabs-md .tab-button[aria-selected=true] .tab-button-text{
+        -webkit-transform: initial;
+    }
+
+    a>span{
+        font-size: $font-semi-medium;
+        color: green;
+    }
+
+    a[aria-selected="true"]:not(:last-of-type)>span {
+        color: $blue-text;
+
+    }
+
+    a[aria-selected="true"]~a>span{
+        color: $grey-text;
+    }
+
+    a>ion-icon{
+        background-image: $check-icon;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+            height: 30px;
+    width: 30px;
+    }
+
+    a[aria-selected="true"]~a>ion-icon{
+        background: transparent;
+        background-size: contain;
+    }
+
+    a[aria-selected="true"]:not(:last-of-type)>ion-icon{
+        background: transparent;
+        background-size: contain;
+    }
+
+    .tab-button{
+        border-bottom: solid 5px green;
+    }
+
+    a[aria-selected="true"]:last-of-type{
+        border-bottom: solid 5px  green;
+    }
+
+    a[aria-selected="true"]{
+        border-bottom: solid 5px $blue-text;
+    }
+
+    a[aria-selected="true"]~a{
+        border-bottom: solid 5px transparent;
+    }
+    
+
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon,
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon,
+    .tab-button-icon.icon.icon-ios.ion-ios-check,
+    .tab-button-icon.icon.icon-md.ion-md-check {
+        transform: none;
+    }
+
+
+
+
+}

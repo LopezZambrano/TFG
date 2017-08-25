@@ -1,0 +1,48 @@
+<ion-content>
+
+    <div class="title padding">Envia la encuesta para que la voten tus amigos</div>
+    <hr>
+
+<div class="padding">
+    <div class="center" *ngIf="myFriends.length == 0">
+        <ion-icon name="ios-alert-outline"></ion-icon>
+        <div class="warn"> ¿Aún no tienes ningún amigo en tu lista?</div>
+        <div class="warn"> Comienza ahora</div>
+        <button ion-button color="primary" (click)="navToNewFriend()"> Agregar amigos</button>
+
+    </div>
+
+    <ion-item no-lines *ngIf="myFriends.length > 0">
+        <ion-label>
+            <ion-icon *ngIf="!query.length >= 1" name="contacts"></ion-icon>
+            <ion-icon (click)="back()" *ngIf="query.length >= 1" name="arrow-round-back"></ion-icon>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]=query (keyup)=filter() placeholder="Filtra por nombre"></ion-input>
+    </ion-item>
+
+    <div *ngIf="filteredList.length > 0">
+        <ion-item *ngFor="let item of filteredList">
+            <div class="container">
+                <div class="margin">
+                    {{item.name}}
+                </div>
+                <div>
+                    <button ion-button color="primary" (click)="select(item)" *ngIf="!checkButton(item.name)">Enviar</button>
+                    <button ion-button color="primary">Enviado</button>
+                </div>
+            </div>
+        </ion-item>
+    </div>
+
+    <div *ngIf="filteredList.length == 0 && query.length >= 1 && !search">
+        <span class="grey">No hay resultados para la búsqueda</span>
+    </div>
+
+    <div *ngIf="pollSend.length >= 1">
+        <p class="subtitle">Enviada a:</p>
+        <ion-item *ngFor="let name of pollSend">
+            <ion-label>{{name}}</ion-label>
+        </ion-item>
+    </div>
+</div>
+</ion-content>

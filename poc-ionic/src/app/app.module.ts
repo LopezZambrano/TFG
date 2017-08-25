@@ -9,7 +9,9 @@ import {LoginPage} from '../pages/login/login/login'
 import { ProfilePage } from '../pages/profile/profile';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
-import { PollPage } from '../pages/poll/poll';
+import { NewPollPage } from '../pages/newPoll/newPoll'
+import { PollPage } from '../pages/newPoll/poll/poll';
+import { SendPollPage } from '../pages/newPoll/sendPoll/sendPoll';
 import { DetailPollPage } from '../pages/list/detail/detail'
 import { RegisterPage } from '../pages/login/register/register'
 import{ HomePage } from '../pages/home/home'
@@ -43,7 +45,9 @@ import { Header } from '../shared/component/header/header'
     Header,
     DetailPollPage,
     VotePage,
-    MyFriendsPage
+    MyFriendsPage,
+    NewPollPage,
+    SendPollPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import { Header } from '../shared/component/header/header'
     Header,
     DetailPollPage,
     VotePage,
-    MyFriendsPage
+    MyFriendsPage,
+    NewPollPage,
+    SendPollPage
   ],
   providers: [
     Network,

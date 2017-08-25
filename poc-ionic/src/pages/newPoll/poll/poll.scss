@@ -11,6 +11,10 @@ page-poll{
         margin: 0;
     }
 
+    .scroll-content{
+        margin-top:60px
+    }
+
     .title > input {
         font-size: 25px;
         border: 2px solid;
@@ -18,12 +22,8 @@ page-poll{
         border-color: $blue-text;
         padding: 10px;
         color: $blue-text;
-        margin-bottom: 25px;
     }
 
-    .title.input.input{
-        margin-top: 65px;
-    }
 
     .select-md,
     .select-ios {

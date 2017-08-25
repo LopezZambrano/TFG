@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NavController, Platform, MenuController, Nav } from 'ionic-angular';
 
 import { ProfilePage } from '../../../pages/profile/profile'
-import { PollPage } from '../../../pages/poll/poll'
+import { PollPage } from '../../../pages/newPoll/poll/poll'
 
 @Component({
   selector: 'page-header',

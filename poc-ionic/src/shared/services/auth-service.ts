@@ -35,7 +35,7 @@ constructor(public http: HttpCustomService){}
     return Observable.of(this.user);
   }
 
-  getAllUsers(){
+  getAllUsers():Observable<User[]>{
     let url = `http://localhost:3000/user`;
         return this.http.doGet(url)
             .map((res) => {

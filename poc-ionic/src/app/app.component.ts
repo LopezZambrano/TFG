@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {LoginPage} from '../pages/login/login/login'
-import{ PollPage } from '../pages/poll/poll'
+import{ PollPage } from '../pages/newPoll/poll/poll'
 
 
 

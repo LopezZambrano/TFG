@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { HttpCustomService } from '../services/http-custom.service'
-import { Vote } from '../models/vote'
-import { Poll } from '../models/poll'
 import { AuthService } from '../services/auth-service'
 
 

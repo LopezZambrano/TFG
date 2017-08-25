@@ -4,7 +4,7 @@ import { NavController, Platform } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ProfilePage } from '../../profile/profile'
 import { MyFriendsPage } from '../../my-friends/my-friends'
-import { PollPage } from '../../poll/poll'
+import { NewPollPage } from '../../newPoll/newPoll'
 import { ListPage } from '../../list/list'
 
 @Component({
@@ -52,7 +52,7 @@ export class Shortcut implements OnInit {
       alert.addButton({
       text: 'OK',
       handler: data => {
-       this.navCtrl.push(PollPage, {
+       this.navCtrl.push(NewPollPage, {
          'type': data
        })
       }
