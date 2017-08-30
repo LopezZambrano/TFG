@@ -71,21 +71,21 @@ page-newPoll{
     }
 
     .tabs-md .tab-button-text{
-         font-size: $font-semi-medium; 
+         font-size: $font-xlarge; 
     }
 
     .tabs-md .tab-button[aria-selected=true] .tab-button-text{
         -webkit-transform: initial;
     }
 
-    a>span{
-        font-size: $font-semi-medium;
-        color: green;
+       a>span{
+        font-size: $font-large;
+        color: $ok-green;
     }
+
 
     a[aria-selected="true"]:not(:last-of-type)>span {
         color: $blue-text;
-
     }
 
     a[aria-selected="true"]~a>span{
@@ -97,8 +97,8 @@ page-newPoll{
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-            height: 30px;
-    width: 30px;
+        height: 30px;
+        width: 30px;
     }
 
     a[aria-selected="true"]~a>ion-icon{
@@ -112,12 +112,10 @@ page-newPoll{
     }
 
     .tab-button{
-        border-bottom: solid 5px green;
+        border-bottom: solid 5px $ok-green;
     }
 
-    a[aria-selected="true"]:last-of-type{
-        border-bottom: solid 5px  green;
-    }
+
 
     a[aria-selected="true"]{
         border-bottom: solid 5px $blue-text;

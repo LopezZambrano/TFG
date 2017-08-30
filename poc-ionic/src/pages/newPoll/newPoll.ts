@@ -4,6 +4,7 @@ import { NavController, Tabs, NavParams } from 'ionic-angular';
 
 import { PollPage } from './poll/poll';
 import { SendPollPage } from './sendPoll/sendPoll';
+import { CorrectPollPage } from './correctPoll/correctPoll'
 
 import { Poll } from '../../shared/models/poll'
 
@@ -23,8 +24,9 @@ export class NewPollPage implements OnInit {
 
     private currentStep: number = 1;
 
-    private tab2Root = PollPage;
-    private tab1Root = SendPollPage;
+    private tab1Root = PollPage;
+    private tab2Root = SendPollPage;
+    private tab3Root = CorrectPollPage;
 
 
     private i: number = 1;

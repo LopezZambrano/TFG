@@ -9,6 +9,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from '../pages/login/login/login'
 import{ PollPage } from '../pages/newPoll/poll/poll'
 
+import { Subject } from 'rxjs/Subject';
+
 
 
 @Component({
@@ -16,6 +18,7 @@ import{ PollPage } from '../pages/newPoll/poll/poll'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  private openSubject: Subject<any> = new Subject();
 
   rootPage = LoginPage;
   pages: Array<{title: string, component: any}>;
@@ -50,4 +53,8 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
+
+    public openMenu() {
+       this.openSubject.next({changed: true});
+    }
 }

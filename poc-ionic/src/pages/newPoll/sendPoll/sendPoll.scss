@@ -42,8 +42,12 @@ page-sendPoll{
         color:$grey-text;
     }
 
-    ion-icon{
-        padding-right: 8px;
+    .icon.icon-md.ion-md-arrow-round-back,
+    .icon.icon-md.ion-md-contacts{
+        font-size: 2.2em;
+        color: $blue-text;
+        padding-top: 6px;
+        padding-right: 5px;
     }
 
     .right{
@@ -53,8 +57,12 @@ page-sendPoll{
     .container {
         justify-content: space-between;
         display: flex;
+        padding-left: 11%;
     }
 
+    .label-md{
+        margin: 0;
+    }
     .margin{
         margin-top: 6px;
     }
@@ -79,15 +87,21 @@ page-sendPoll{
     }
 
     .title{
-        font-size: $font-xlarge;
+        font-size: $font-xxlarge;
         color: $blue-text;
-        margin-top: 20px;
+        margin-top: 25px;
     }
 
-    .content-md hr {
+    .lineTitle {
         height: 3px;
         background-color: $blue-text;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+    }
+
+    .lineSubtitle {
+        height: 1px;
+        background-color: $blue-text;
+        margin-bottom: 25px;
     }
 
     .center{
@@ -99,14 +113,66 @@ page-sendPoll{
         padding-right: 10%;
     }
 
-    .button{
-        height: 30px;
-        margin-top: 10px;
-    }
 
     .warn{
         color:$grey-text;
         font-size: $font-large;
     }
+
+    .search{
+        display: flex;
+
+    }
+
+    .line {
+        margin-left: 11%;
+        border-width: thin;
+        box-sizing: inherit;
+        background-color:$blue-text;
+        opacity: 0.2;
+    }
+
+    .subtitle{
+        color: $blue-text;
+        font-size: $font-medium;
+    }
+
+    .square{
+        margin-top: 10px;
+         border: 0.5px solid $grey-text; 
+         border-style: dotted;
+    }
+
+    .friend{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+
+    .delete {
+        border-radius: 50%;
+        background-color: red;
+        height: 30px;
+        width: 30px;
+    }
+
+    .icon.icon-md.ion-ios-trash-outline{  
+        font-size: 22px;        
+    }
+
+    .center{
+        text-align: center;
+    }
+
+  .item.send {
+
+    //Clases que se aplican en los .item impares
+    &:nth-child(odd) {
+        background-color: $background-blue;
+
+        &::after{
+            background-image: red;
+        }
+    }
+  }
 
 }

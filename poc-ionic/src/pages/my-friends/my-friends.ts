@@ -32,8 +32,17 @@ export class MyFriendsPage implements OnInit {
     ngOnInit() {
         this.authService.getAllUsers()
             .subscribe(users => {
+                this.authService.getUser().subscribe(
+                    user => {
+                        this.myUser = user;
+                    },
+                    err => {
+                        console.log(err)
+                })
+
+                users = users.filter(user => user._id !== this.myUser._id)
                 this.friendService.getMyFriends(this.myUser._id).subscribe(friends => {
-                    if (friends){
+                    if (friends) {
                         this.getMyFriendsForId(users, friends.idFriends);
                         this.getOtherUserForId(users, friends.idFriends);
                     } else {
@@ -47,12 +56,7 @@ export class MyFriendsPage implements OnInit {
                 console.log(err)
             })
 
-        this.authService.getUser().subscribe(user => {
-            this.myUser = user;
-        },
-            err => {
-                console.log(err)
-            })
+
     }
 
 
@@ -79,7 +83,7 @@ export class MyFriendsPage implements OnInit {
             this.filteredList = this.otherUsers.filter(function (el) {
                 return el.name.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
             }.bind(this));
-            if (this.filteredList.length == 0){
+            if (this.filteredList.length == 0) {
                 this.search = false;
             }
         } else {
@@ -89,12 +93,13 @@ export class MyFriendsPage implements OnInit {
     }
 
     select(item) {
-        this.query = item.name;
         this.filteredList = [];
-        this.friendService.addFriend(item._id, this.myUser._id).subscribe(res => console.log(res))
+        this.friendService.addFriend(item._id, this.myUser._id).subscribe(res => {
+        })
+
     }
 
-    back(){
+    back() {
         this.query = '';
         this.filteredList = [];
     }

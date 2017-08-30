@@ -22,7 +22,7 @@ export class SendPollPage implements OnInit {
   constructor(public authService: AuthService,
     public pollService: PollService,
     public friendService: FriendService,
-    public navParams: NavParams, 
+    public navParams: NavParams,
     public navCnt: App) { }
 
 
@@ -37,6 +37,8 @@ export class SendPollPage implements OnInit {
   myUser: User;
   search: boolean = true;
 
+  allUsers: User[];
+
   private onComplete: any;
   newPoll: Poll = { title: '' };
 
@@ -45,15 +47,15 @@ export class SendPollPage implements OnInit {
     this.onComplete = this.navParams.data.onComplete;
     this.newPoll = this.navParams.data.newPoll;
 
-
     this.authService.getAllUsers()
       .subscribe(users => {
+        this.allUsers = users;
         this.friendService.getMyFriends(this.myUser._id).subscribe(friends => {
-          if (friends){
+          if (friends) {
             this.getMyFriendsForId(users, friends.idFriends);
             this.filteredList = this.myFriends;
           } else {
-            this.filteredList = [];
+            this.myFriends = null;
           }
 
         })
@@ -81,6 +83,8 @@ export class SendPollPage implements OnInit {
 
   filter() {
     this.search = true;
+    this.checkSend();
+
     if (this.query !== "") {
       this.filteredList = this.myFriends.filter(function (el) {
         return el.name.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
@@ -94,18 +98,29 @@ export class SendPollPage implements OnInit {
     }
   }
 
-  select(item) {
-    this.query = item.name;
-    this.pollSend.push(item.name);
+  send(item) {
     this.pollService.saveSendPoll(item._id, this.newPoll._id).subscribe(res => {
-      if (this.onComplete) {
-        this.onComplete();
-      }
+      this.query = item.name;
+      this.pollSend.push(item.name);
+      this.clean(item);
     })
   }
 
-  checkButton(name) {
-    return this.pollSend.find(name);
+  deleteSend(name){
+    let userSend: User;
+    userSend = this.allUsers.filter(user=> user.name === name)[0];
+    
+    this.pollService.deleteSendPoll(userSend._id, this.newPoll._id)
+      .subscribe(res=>{
+        this.pollSend = this.pollSend.filter(user=> user._id !== userSend._id)
+      })
+  }
+
+  checkSend() {
+    let i;
+    for (i = 0; i < this.pollSend.length; i++) {
+      this.myFriends = this.myFriends.filter(user => user._id == this.pollSend[i]._id);
+    }
   }
 
   back() {
@@ -113,9 +128,21 @@ export class SendPollPage implements OnInit {
     this.filteredList = [];
   }
 
-  navToNewFriend(){
+  clean(userSend) {
+    this.query = '';
+    this.filteredList = this.filteredList.filter(user => user._id !== userSend._id)
+  }
+
+  navToNewFriend() {
     this.navCnt.getRootNav().push(MyFriendsPage)
 
   }
+
+  save() {
+      if (this.onComplete) {
+        this.onComplete();
+      }
+  }
+
 
 }

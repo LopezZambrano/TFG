@@ -12,6 +12,7 @@ import { ListPage } from '../pages/list/list';
 import { NewPollPage } from '../pages/newPoll/newPoll'
 import { PollPage } from '../pages/newPoll/poll/poll';
 import { SendPollPage } from '../pages/newPoll/sendPoll/sendPoll';
+import { CorrectPollPage } from '../pages/newPoll/correctPoll/correctPoll'
 import { DetailPollPage } from '../pages/list/detail/detail'
 import { RegisterPage } from '../pages/login/register/register'
 import{ HomePage } from '../pages/home/home'
@@ -30,6 +31,7 @@ import { VoteService } from '../shared/services/vote-service'
 import { FriendService } from '../shared/services/friend-service';
 import { CommonService } from '../shared/services/common'
 import { Header } from '../shared/component/header/header'
+import { Menu } from '../shared/component/menu/menu'
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { Header } from '../shared/component/header/header'
     VotePage,
     MyFriendsPage,
     NewPollPage,
-    SendPollPage
+    SendPollPage,
+    CorrectPollPage,
+    Menu
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,9 @@ import { Header } from '../shared/component/header/header'
     VotePage,
     MyFriendsPage,
     NewPollPage,
-    SendPollPage
+    SendPollPage,
+    CorrectPollPage,
+    Menu
   ],
   providers: [
     Network,

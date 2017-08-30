@@ -1,36 +1,44 @@
 <page-header></page-header>
 <ion-content>
-<!--    <div class="amigos">
+    <!--    <div class="amigos">
     </div>-->
-    <ion-item no-lines>
-        <ion-label>
-            <ion-icon *ngIf="!query.length >= 1" name="contacts"></ion-icon>
-            <ion-icon  (click)="back()" *ngIf="query.length >= 1" name="arrow-round-back"></ion-icon>
-        </ion-label>
-        <ion-input type="text" [(ngModel)]=query (keyup)=filter() placeholder="Buscador amigos"></ion-input>
-    </ion-item>
+    <div class="search">
+        <ion-icon *ngIf="!query.length >= 1" name="contacts"></ion-icon>
+        <ion-icon (click)="back()" *ngIf="query.length >= 1" name="arrow-round-back"></ion-icon>
+
+        <ion-item no-lines>
+
+            <ion-input type="text" [(ngModel)]=query (keyup)=filter() placeholder="Buscador amigos"></ion-input>
+        </ion-item>
+    </div>
+
 
     <div *ngIf="filteredList.length > 0">
-        <ion-item *ngFor="let item of filteredList">
+        <ion-item no-lines *ngFor="let item of filteredList">
             <div class="container">
-            <div class="margin">
-                {{item.name}}
+                <div class="margin">
+                    {{item.name}}
+                </div>
+                <div>
+                    <button ion-button color="primary" (click)="select(item)">Añadir</button>
+                </div>
+
             </div>
-            <div>
-                <button ion-button color="primary" (click)="select(item)">Añadir</button>
-            </div>
-            </div>
+            <hr class="line">
         </ion-item>
     </div>
 
-    <div *ngIf="filteredList.length == 0 && query.length >= 1 && !search">
-        <span class="grey">No hay resultados para la búsqueda</span>
-    </div>
+    <div class="content">
+        <div *ngIf="filteredList.length == 0 && query.length >= 1 && !search">
+            <span class="grey">No hay resultados para la búsqueda</span>
+        </div>
 
-    <div class="friends" *ngIf="filteredList.length == 0 && !query && myFriends.length > 0">
-        <p class="blue">Mis amigos</p>
-        <ion-item *ngFor="let friend of myFriends">
-            <div>{{friend.name}}</div>
-        </ion-item>
+        <div class="friends" *ngIf="filteredList.length == 0 && !query && myFriends.length > 0">
+            <h1 class="blue">Mis amigos</h1>
+            <ion-item *ngFor="let friend of myFriends">
+                 
+                <div><ion-icon name="arrow-round-forward"></ion-icon>{{friend.name}}</div>
+            </ion-item>
+        </div>
     </div>
 </ion-content>

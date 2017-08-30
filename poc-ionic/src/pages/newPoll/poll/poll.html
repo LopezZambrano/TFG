@@ -6,14 +6,14 @@
     <div class="part">
       <div>
         <ion-item no-lines>
-          <ion-input class="title" [ngClass]="{'error': error}" type="text" placeholder="Título" formControlName="title">Título</ion-input>
+          <ion-input class="title" [ngClass]="{'error': !pollForm.controls['title'].valid && pollForm.controls.title.dirty}" type="text" placeholder="Título" formControlName="title">Título</ion-input>
         </ion-item>
       </div>
       <!--Fechas-->
       <div *ngIf="fecha">
         <ion-item>
           <ion-label color="primary" stacked>Seleccionar fechas</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [formControl]="controldate" placeholder="Fechas"></ion-datetime>
+          <ion-datetime [ngClass]="{'errorOptions': error}" displayFormat="DD/MM/YYYY" [formControl]="controldate" placeholder="Fechas"></ion-datetime>
         </ion-item>
         <div class="add">
           <button class="add" ion-button (click)="mostrarFechas()">Añadir</button>
@@ -31,7 +31,7 @@
         <form (ngSubmit)="mostrarTextos()">
           <ion-item no-lines>
             <ion-label color="primary" stacked>Añadir opción</ion-label>
-            <ion-input [formControl]="controltext" type="text" placeholder="Nueva opción"></ion-input>
+            <ion-input [ngClass]="{'error': errorOptions}" [formControl]="controltext" type="text" placeholder="Nueva opción"></ion-input>
           </ion-item>
         </form>
         <div class="add">
@@ -85,7 +85,7 @@
   </form>
 
   <div class="save">
-    <button ion-button color="secondary" (click)="save()">Guardar encuesta</button>
+    <button ion-button color="secondary" (click)="save()">Continuar</button>
   </div>
 
 </ion-content>

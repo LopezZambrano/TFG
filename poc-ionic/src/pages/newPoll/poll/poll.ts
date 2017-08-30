@@ -44,7 +44,8 @@ export class PollPage implements OnInit {
   option: Vote[] = [];
 
   cont: boolean = false;
-  error: boolean = false;
+  errorTitle: boolean = false;
+  errorOptions: boolean = false;
 
   user: User;
 
@@ -87,46 +88,57 @@ export class PollPage implements OnInit {
     }
     this.controltext.reset();
     this.cont = true;
+    this.errorOptions = false;
   }
 
   mostrarFechas() {
     this.option.push({ "option": new Date(this.controldate.value) });
     this.controldate.reset();
     this.cont = true;
+    this.errorOptions = false;
   }
 
 
   save() {
+    this.errorOptions = false;
+    this.errorOptions = false;
 
-    if (this.pollForm.controls['title'].valid) {
-      this.newPoll.commentary = this.pollForm.controls['commentary'].value;
-      this.newPoll.negativeVote = this.pollForm.controls['negativeVote'].value;
-      this.newPoll.oneVote = this.pollForm.controls['oneVote'].value;
-      this.newPoll.private = this.pollForm.controls['private'].value;
-      this.newPoll.title = this.pollForm.controls['title'].value;
-      this.newPoll.ubication = this.pollForm.controls['ubication'].value;
-      this.newPoll.type = this.type;
-
-      if (this.option.length !== 0) {
+    if (this.option.length > 0) {
+      if (this.pollForm.controls['title'].valid) {
+        this.newPoll.commentary = this.pollForm.controls['commentary'].value;
+        this.newPoll.negativeVote = this.pollForm.controls['negativeVote'].value;
+        this.newPoll.oneVote = this.pollForm.controls['oneVote'].value;
+        this.newPoll.private = this.pollForm.controls['private'].value;
+        this.newPoll.title = this.pollForm.controls['title'].value;
+        this.newPoll.ubication = this.pollForm.controls['ubication'].value;
+        this.newPoll.type = this.type;
         this.newPoll.possibilities = this.option;
-      }
 
-      this.pollService.savePoll(this.newPoll, this.user._id)
-        .subscribe(res => {
-          this.voteService.saveVote(this.prepareOption(res.possibilities), res._id, res).subscribe(val => {
-            if (this.onComplete) {
-              this.onComplete();
-            }
+        this.pollService.savePoll(this.newPoll, this.user._id)
+          .subscribe(res => {
+            this.voteService.saveVote(this.prepareOption(res.possibilities), res._id, res).subscribe(val => {
+              this.newPoll._id = res._id;
+              if (this.onComplete) {
+                this.onComplete();
+              }
+            })
+
+          },
+          err => {
+            console.log('error')
           })
 
-        },
-        err => {
-          console.log('error')
-        })
-
-    } else {
-      this.error = true;
+      } else {
+        this.errorTitle = true;
+      }
+    } else{
+      this.errorOptions  = true;
+      if (!this.pollForm.controls['title'].valid){
+        this.errorTitle = true;
+      }
     }
+
+
   }
 
   ionViewDidEnter() {

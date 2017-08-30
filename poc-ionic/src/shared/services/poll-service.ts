@@ -38,6 +38,14 @@ export class PollService {
             .map((res) => {
                 return res.json();
             })
+    }
 
+    deleteSendPoll(idUserToSend, idPoll) {
+        let url = `http://localhost:3000/pending/delete`;
+        let body = { "idUser": idUserToSend, "idPolls": idPoll };
+        return this.http.doPost(url, body)
+            .map((res) => {
+                return res.json();
+            })
     }
 }

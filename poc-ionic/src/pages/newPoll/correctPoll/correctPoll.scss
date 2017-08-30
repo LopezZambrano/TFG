@@ -1,0 +1,55 @@
+page-correctPoll{
+    .scroll-content{
+        margin-top:60px
+    }
+
+    .lineTitle {
+        height: 3px;
+        background-color: $blue-text;
+        margin-bottom: 25px;
+    }
+
+
+    .title{
+        font-size: $font-xxlarge;
+        color: $blue-text;
+        margin-top: 25px;
+    }
+
+        .padding{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .encuesta{
+        background-image: $encuesta;
+        background-size: contain;
+        height: 110px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .center{
+        text-align: center;
+    }
+
+    .button-md-primary{
+        width: 60%;
+        margin: 10px;
+    }
+
+     .button-md-secondary{
+         margin-top: 20px;
+         width: 30%;
+     }
+
+    .blue{
+        font-size: $font-xlarge;
+        color: $blue-text;
+    }
+
+    .grey{
+        font-size: $font-semi-medium;
+        color: $grey-text;
+    }
+}
