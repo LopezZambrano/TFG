@@ -1,0 +1,16 @@
+page-tabs{
+        .scroll-content{
+        margin-top: 60px;
+    }
+
+
+    .tabs-md .tab-button[aria-selected=true]{
+        background-color: $background-blue;
+    }
+
+    .tabs-md .tab-button-text{
+        font-size: $font-semi-large;
+    }
+
+
+}

@@ -41,3 +41,26 @@
 button>span{
     text-transform: none;
 }
+
+.menu-inner{
+    width: 70%;
+}
+
+menu{
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.text-input{
+    padding: 4px;
+}
+
+.oops{
+    margin: 20px;
+    background-image: url(../assets/img/oops2.png);
+    background-size: contain;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    }

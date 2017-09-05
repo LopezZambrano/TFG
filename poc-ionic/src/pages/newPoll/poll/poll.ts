@@ -8,7 +8,6 @@ import 'rxjs/add/operator/catch';
 import { PollService } from '../../../shared/services/poll-service';
 import { AuthService } from '../../../shared/services/auth-service'
 import { VoteService } from '../../../shared/services/vote-service'
-import { HomePage } from '../../../pages/home/home'
 
 import { Vote } from '../../../shared/models/vote'
 import { User } from '../../../shared/models/user'
@@ -48,6 +47,7 @@ export class PollPage implements OnInit {
   errorOptions: boolean = false;
 
   user: User;
+
 
 
   ngOnInit() {
@@ -114,18 +114,19 @@ export class PollPage implements OnInit {
         this.newPoll.type = this.type;
         this.newPoll.possibilities = this.option;
 
+
         this.pollService.savePoll(this.newPoll, this.user._id)
           .subscribe(res => {
             this.voteService.saveVote(this.prepareOption(res.possibilities), res._id, res).subscribe(val => {
               this.newPoll._id = res._id;
               if (this.onComplete) {
-                this.onComplete();
+                this.onComplete(1);
               }
             })
 
           },
           err => {
-            console.log('error')
+            console.log(err)
           })
 
       } else {

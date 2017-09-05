@@ -39,21 +39,22 @@ export class NewPollPage implements OnInit {
                 }
 
     public ngOnInit() {
-
         this.move = this.move.bind(this);
-        this.params = this.navParams.data;
     }
 
     public ionViewWillEnter() {
         this.tabRef.select(0);
+        this.currentStep = 1;
     }
 
-    private move() {
+     private move(step) {
 
         const current = this.currentStep;
-        const moveTo = current + 1;
+
+        const moveTo = current + step;
 
         this.currentStep = moveTo;
+
         this.tabRef.select(moveTo - 1);
     }
 

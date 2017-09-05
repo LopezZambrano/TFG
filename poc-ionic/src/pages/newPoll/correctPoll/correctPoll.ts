@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import { NavController, NavParams, App } from 'ionic-angular';
+import { NavParams, App} from 'ionic-angular';
 
-import { MyFriendsPage } from '../../../pages/my-friends/my-friends'
-
-import { User } from '../../../shared/models/user'
+import { HomePage } from '../../../pages/home/home'
 import { Poll } from '../../../shared/models/poll'
-import { AuthService } from '../../../shared/services/auth-service'
-import { PollService } from '../../../shared/services/poll-service'
-import { FriendService } from '../../../shared/services/friend-service'
+
 
 
 
@@ -19,18 +15,33 @@ import { FriendService } from '../../../shared/services/friend-service'
 })
 export class CorrectPollPage implements OnInit {
 
-  constructor(public authService: AuthService,
-    public pollService: PollService,
-    public friendService: FriendService,
-    public navParams: NavParams,
-    public navCnt: App) { }
+  constructor(public navParams: NavParams,
+              public navCnt: App) { }
 
-    private onComplete: any;
-    newPoll: Poll = { title: '' };
+  private onComplete: any;
+  newPoll: Poll = { title: '' };
 
-    ngOnInit(){
-      this.onComplete = this.navParams.data.onComplete;
-      this.newPoll = this.navParams.data.newPoll;
+  ngOnInit() {
+    this.onComplete = this.navParams.data.onComplete;
+    this.newPoll = this.navParams.data.newPoll;
+  }
+
+  send() {
+    if (this.onComplete) {
+      this.onComplete(-1);
     }
+  }
+
+  edit() {
+    if (this.onComplete) {
+      this.onComplete(-2);
+    }
+  }
+
+    save() {
+      this.navCnt.getRootNav().push(HomePage)
+    }
+
+  
 
 }

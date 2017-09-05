@@ -1,5 +1,93 @@
 page-detail-poll{   
     .scroll-content{
-        padding-top: 65px;
+        padding-top: 60px;
     }
+
+    
+    .titlePoll{
+        color: $blue-text;
+        font-size: $font-extra-large;
+        padding-bottom: 15px;
+        background-color: $background-blue;
+        font-weight: 500;
+        padding: 15px;
+        text-transform: uppercase;
+    }
+    .extra{
+        color: $blue-text;
+        font-size: $font-large;
+        padding: 25px;
+        background-color: $background-grey;
+    }
+
+      .option{
+        color: $blue-text;
+        font-size: $font-large;
+        background-color: $background-blue;
+        padding: 8px;
+        font-weight: 500;  
+        margin-top: 15px;
+    }
+
+
+    .elementoConOverflow {
+        display:inline-block;
+        width:75px;
+        text-align:center;
+    }
+
+    .scroll {
+        width:auto;
+        overflow-x:scroll;
+        white-space: nowrap;
+
+    }
+
+.col{
+    color:$ok-green;
+}
+
+
+.header .col {
+    background-color:$background-grey;
+     color: $blue-text;
+     text-transform: uppercase;
+    text-align: center;
+}
+
+.col {
+    border: solid 1px $blue-text;
+    border-bottom-style: none;
+    border-right-style: none;
+   text-align: center;
+       min-width: 35%;
+           height: 36px;
+    padding-top: 9px;
+  
+}
+
+.row{
+      flex-wrap: initial;
+    
+}
+
+.col:last-child {
+    border-right: solid 1px $blue-text;
+    text-align: center;
+  
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px $blue-text;
+    text-align: center;
+
+
+}
+
+.col:first-child {
+     background-color:$background-grey;
+     color: $blue-text;
+     text-align: center;
+  
+}
 }

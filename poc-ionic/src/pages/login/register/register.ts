@@ -32,7 +32,7 @@ export class RegisterPage {
     this.registerCredentials = this.formBuilder.group({
       'user': [null, Validators.required],
       'email': [null, Validators.required],
-      'password': [null, Validators.required],
+      'password': [null, Validators.compose([Validators.required, Validators.minLength(6)])],
       'repeat': [null, Validators.required],
     });
   }
@@ -56,6 +56,12 @@ export class RegisterPage {
       this.errors[id].unshift('No coinciden');
     } else if (type === 3) {
       this.errors[id].unshift('Formato no válido');
+    } else if (type === 4) {
+      this.errors[id].unshift('La contraseña debe contener al menos 6 caracteres');
+    } else if (type === 401){
+      this.errors[id].unshift('Ya existe una cuenta con este nombre');
+    } else if (type === 400){
+      this.errors[id].unshift('Ya existe una cuenta con este email');
     }
   }
 
@@ -87,6 +93,9 @@ export class RegisterPage {
     if (datas.password !== datas.repeat) {
       this.error('repeat', 2)
     }
+    if (datas.password.length < 6){
+      this.error('password', 4)
+    }
   }
 
 
@@ -109,8 +118,10 @@ export class RegisterPage {
         error => {
           if(error.status === 400){
             this.showPopup("Error", "Ya hay una cuenta registrada con este email");
+            this.error('email', error.status);
           } else if (error.status === 401) {
             this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
+            this.error('user', error.status);
           } else {
             this.showPopup("Error", "Se ha producido un error al registrar su cuenta, intentelo de nuevo");
           }
@@ -124,13 +135,10 @@ export class RegisterPage {
       subTitle: text,
       buttons: [
         {
-          text: 'OK',
-          handler: data => {
-            if (this.createSuccess) {
-              this.nav.popToRoot();
-            }
+          text: 'OK'
+        
           }
-        }
+        
       ]
     });
     alert.present();

@@ -42,10 +42,10 @@
 
     <ion-list class="padding">
         <div *ngIf="pollSend.length >= 1">
-            <div class="subtitle">Editar invitaciones</div>
+            <div class="subtitle">Deslice para editar la invitación</div>
             <ion-item-sliding  *ngFor="let name of pollSend">
                 <ion-item>
-                    <ion-label>{{name}}</ion-label>
+                    <ion-label>{{name.name}}</ion-label>
                 </ion-item>
                 <ion-item-options side="right">
                     <button ion-button class="delete" (click)="deleteSend(name)">

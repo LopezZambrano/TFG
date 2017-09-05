@@ -76,12 +76,14 @@ page-my-friends{
     }
 
     .blue{
-        font-size: $font-xlarge;
+        margin-top: 20px;
+        font-size: $font-xxxlarge;
         color: $blue-text;
+        margin-bottom: 5px;
     }
 
     .grey{
-        font-size: $font-semi-medium;
+        font-size: $font-semi-large;
         color: $grey-text;
     }
 
@@ -108,10 +110,20 @@ page-my-friends{
 
     .label-md{
         margin: 0;
+        font-size: $font-large;
     }
 
     ion-label{
         color: $grey-text;
+    }
+
+    .warn{
+        text-align: center;
+        padding-top: 20px;
+        color: grey;
+        font-size: $font-xxlarge;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
 }

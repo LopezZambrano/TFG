@@ -17,8 +17,10 @@ import { DetailPollPage } from '../pages/list/detail/detail'
 import { RegisterPage } from '../pages/login/register/register'
 import{ HomePage } from '../pages/home/home'
 import { Shortcut } from '../pages/home/shortcut/shortcut'
-import { VotePage } from '../pages/vote/vote'
+import { VotePage } from '../pages/vote/vote/vote'
 import { MyFriendsPage } from '../pages/my-friends/my-friends'
+import { ListPollPage } from '../pages/vote/listPoll/listPoll'
+import { TabsPage } from '../pages/vote/tabs'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -51,7 +53,9 @@ import { Menu } from '../shared/component/menu/menu'
     NewPollPage,
     SendPollPage,
     CorrectPollPage,
-    Menu
+    Menu, 
+    ListPollPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,9 @@ import { Menu } from '../shared/component/menu/menu'
     NewPollPage,
     SendPollPage,
     CorrectPollPage,
-    Menu
+    Menu,
+    ListPollPage,
+    TabsPage
   ],
   providers: [
     Network,

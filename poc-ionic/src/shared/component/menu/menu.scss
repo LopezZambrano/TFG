@@ -1,0 +1,42 @@
+menu{
+
+    .center{
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .logo{
+        background-image: $poll;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 150px;
+        background-position: center;
+        margin-bottom: 15px;
+    }
+
+menu{
+    height: 100%;
+}
+
+
+
+    ion-label {
+        color: $grey-text;
+        font-size: 20px;
+    }
+
+    details[open] > summary::after, summary::after {
+        width:15px;
+    }
+    details[open] > summary{
+         color:$blue-text;
+     }
+     summary {
+         color: $grey-text;
+     }
+
+.label{
+        margin-bottom: 15px;
+}
+
+}

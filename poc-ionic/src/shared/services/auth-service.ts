@@ -22,6 +22,10 @@ constructor(public http: HttpCustomService){}
             })
   }
 
+  logout(){
+      this.user = null;
+  }
+
  register(credentials) {
       let url = `http://localhost:3000/user/register`;
       let body = {"name": credentials.user, "email": credentials.email, "password":credentials.password};

@@ -1,0 +1,48 @@
+<page-header>
+</page-header>
+<ion-content>
+    <div class="border">
+        <div class="titlePoll">
+            {{poll.title}}
+        </div>
+       <!-- <hr class="lineTitle">-->
+        <div class="extra">
+            <div>Ubicación: {{poll.ubication}}</div><br>
+            <div>Comentario: {{poll.commentary}}</div>
+        </div>
+    </div>
+
+    <div *ngIf="!poll.oneVote">
+        <div class="border">
+            <div class="option">Opciones</div>
+            <ion-item *ngFor="let possibility of poll.possibilities">
+                <ion-label *ngIf="text">{{possibility.option}}</ion-label>
+                <ion-label *ngIf="!text">{{possibility.option | date: 'dd-MM-yyyy'}}</ion-label>
+                <ion-checkbox (ionChange)="check(possibility)"></ion-checkbox>
+            </ion-item>
+        </div>
+        <div class="save">
+            <button ion-button color="secondary" (click)="saveCheck()">Guardar mi voto</button>
+        </div>
+    </div>
+
+
+    <div *ngIf="poll.oneVote">
+        <div class="border">
+            <div class="option">Opciones</div>
+            <ion-list radio-group>
+                <ion-item *ngFor="let possibility of poll.possibilities">
+                    <ion-label *ngIf="text">{{possibility.option}}</ion-label>
+                    <ion-label *ngIf="!text">{{possibility.option | date: 'dd-MM-yyyy'}}</ion-label>
+                    <ion-radio (ionSelect)="radio(possibility)"></ion-radio>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="save">
+            <button ion-button color="secondary" class="exit" (click)="saveRadio()">Guardar mi voto</button>
+        </div>
+    </div>
+
+
+
+</ion-content>

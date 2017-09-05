@@ -15,7 +15,7 @@ export class PollService {
         let body = {
             "commentary": poll.commentary, "negativeVote": poll.negativeVote, "oneVote": poll.oneVote,
             "possibilities": poll.possibilities, "private": poll.private, "title": poll.title,
-            "ubication": poll.ubication, "type": poll.type, "idUser": id
+            "ubication": poll.ubication, "type": poll.type, "idUser": id, "_id": poll._id
         };
         return this.http.doPost(url, body)
             .map((res) => {
@@ -25,6 +25,14 @@ export class PollService {
 
     getPolls(id) {
         let url = `http://localhost:3000/poll/${id}`;
+        return this.http.doGet(url)
+            .map((res) => {
+                return res.json();
+            })
+    }
+
+    getAllPolls() {
+        let url = `http://localhost:3000/poll`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json();

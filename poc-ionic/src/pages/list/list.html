@@ -1,7 +1,10 @@
-<page-header></page-header>
+<page-header [back]="'false'"></page-header>
 <ion-content>
 
+  <div class="oops"  *ngIf="polls.length==0"></div>
   <div class="warn" *ngIf="polls.length==0"> ¡Aún no has creado ninguna encuesta!</div>
+
+
   <div *ngIf="polls">
     <ion-item *ngFor="let poll of polls" (click)="showMore(poll)">
       <p class="title">{{poll.title}}<br>

@@ -1,21 +1,42 @@
-
-<page-header></page-header>
+<page-header>
+</page-header>
 <ion-content>
-    <p>{{poll.title}}</p>
 
-    {{poll.ubication}}
+    <div class="titlePoll">
+        {{poll.title}}
+    </div>
+    <div class="extra" *ngIf="poll.ubication || poll.commentary">
+        <div *ngIf="poll.ubication">Ubicación: {{poll.ubication}}</div><br>
+        <div *ngIf="poll.commentary">Comentario: {{poll.commentary}}</div>
+    </div>
+    <div class="option">Votaciones:</div>
 
-    {{poll.commentary}}
+<ion-content padding>
 
-    {{poll.negativeVote}}
+<div class="scroll" *ngIf="!typeText">
+        <div class="row header " >
+          <div class="col"></div>
+          <div class="col " *ngFor="let option of votes"> {{option.option}}</div>
+        </div>
 
-    {{poll.private}}
+        <div class="row " *ngFor="let user of userVote;let i = index" >
+          <div class="col" >{{user.name}}</div>
+          <div class="col"  *ngFor="let votes of userVote[i].votes" >{{votes}}</div>
+        </div>
+</div>
 
-    {{poll.oneVote}}
+<div class="scroll" *ngIf="typeText">
+        <div class="row header " >
+          <div class="col"></div>
+          <div class="col " *ngFor="let option of votes" >{{option.option | date: 'dd-MM-yyyy'}}</div>
+        </div>
 
-    {{poll.possibilities}}
+        <div class="row " *ngFor="let user of userVote;let i = index" >
+          <div class="col" >{{user.name}}</div>
+          <div class="col"  *ngFor="let votes of userVote[i].votes" >{{votes}}</div>
+        </div>
+</div>
 
-    {{poll.type}}
-
+</ion-content>
 
 </ion-content>

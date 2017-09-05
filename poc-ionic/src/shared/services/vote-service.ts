@@ -5,6 +5,7 @@ import { HttpCustomService } from '../services/http-custom.service'
 import { AuthService } from '../services/auth-service'
 
 
+
 @Injectable()
 export class VoteService {
 
@@ -19,13 +20,39 @@ export class VoteService {
                     return res.json();
                 }) 
     }
+
+    saveSendVote(idUser, idPoll) {
+        let url = `http://localhost:3000/send/add`;
+        let body = { "idUser": idUser, "idPolls": idPoll };
+        return this.http.doPost(url, body)
+            .map((res) => {
+                return res.json();
+            })
+    }
+
  
 
     getVote(id) {
         let url = `http://localhost:3000/vote/${id}`;
         return this.http.doGet(url)
             .map((res) => {
-                return res.json();
+                return res.json()[0];
+            })
+    }
+
+    getPendingVote(id){
+        let url = `http://localhost:3000/pending/${id}`;
+        return this.http.doGet(url)
+            .map((res) => {
+                return res.json()[0].idPolls;
+            })
+    }
+
+    getSendVote(id){
+        let url = `http://localhost:3000/send/${id}`;
+        return this.http.doGet(url)
+            .map((res) => {
+                return res.json()[0].idPolls;
             })
     }
 

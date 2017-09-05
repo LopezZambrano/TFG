@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import { NavController, NavParams, App } from 'ionic-angular';
+import { NavParams, App } from 'ionic-angular';
 
 import { MyFriendsPage } from '../../../pages/my-friends/my-friends'
 
@@ -30,7 +30,7 @@ export class SendPollPage implements OnInit {
   public filteredList = [];
   public elementRef;
 
-  public pollSend: User[] = [];
+  public pollSend = [];
 
 
   myFriends: User[] = [];
@@ -101,18 +101,17 @@ export class SendPollPage implements OnInit {
   send(item) {
     this.pollService.saveSendPoll(item._id, this.newPoll._id).subscribe(res => {
       this.query = item.name;
-      this.pollSend.push(item.name);
+      this.pollSend.push(item);
       this.clean(item);
     })
   }
 
-  deleteSend(name){
-    let userSend: User;
-    userSend = this.allUsers.filter(user=> user.name === name)[0];
-    
-    this.pollService.deleteSendPoll(userSend._id, this.newPoll._id)
+  deleteSend(userDelete){
+
+    this.pollService.deleteSendPoll(userDelete._id, this.newPoll._id)
       .subscribe(res=>{
-        this.pollSend = this.pollSend.filter(user=> user._id !== userSend._id)
+        this.pollSend = this.pollSend.filter(user=> user.name !== userDelete.name)
+        this.filteredList.push(userDelete);
       })
   }
 
@@ -140,7 +139,7 @@ export class SendPollPage implements OnInit {
 
   save() {
       if (this.onComplete) {
-        this.onComplete();
+        this.onComplete(1);
       }
   }
 

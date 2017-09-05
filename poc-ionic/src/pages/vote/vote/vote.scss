@@ -1,0 +1,67 @@
+page-vote{   
+    .scroll-content{
+        margin-top:60px
+    }
+    .save{
+        padding-top:20px;
+        text-align: center;
+        text-transform: none;
+    }
+
+    .item{
+        font-size: $font-xlarge;
+        color:$grey-text;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    button{
+        padding: 0;
+    }
+
+    ion-label{
+        white-space: initial;
+    }
+
+/*    .border{
+        border: 3px solid $blue-text;
+        margin-bottom: 20px;
+    }*/
+
+    .titlePoll{
+        color: $blue-text;
+        font-size: $font-extra-large;
+        padding-bottom: 15px;
+        background-color: $background-blue;
+        font-weight: 500;
+        padding: 15px;
+        text-transform: uppercase;
+    }
+    .extra{
+        color: $blue-text;
+        font-size: $font-large;
+        padding: 25px;
+        background-color: $background-grey;
+    }
+
+    .option{
+        color: $blue-text;
+        font-size: $font-large;
+        background-color: $background-blue;
+        padding: 8px;
+        font-weight: 500;
+    }
+
+        .lineTitle {
+        height: 3px;
+        background-color: $blue-text;
+        margin:0;
+    }
+
+    .item{
+        font-size: $font-semi-large;
+    }
+
+
+}

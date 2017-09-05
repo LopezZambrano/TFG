@@ -117,7 +117,7 @@ page-newPoll{
 
 
 
-    a[aria-selected="true"]{
+    a[aria-selected="true"]:not(:last-of-type){
         border-bottom: solid 5px $blue-text;
     }
 
@@ -133,6 +133,14 @@ page-newPoll{
         transform: none;
     }
 
+    .button-md-secondary{
+         margin-top: 35px;
+         width: 30%;
+     }
+
+    .exit{
+        font-size: $font-semi-large;
+    }
 
 
 

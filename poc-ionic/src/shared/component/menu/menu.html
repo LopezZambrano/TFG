@@ -1,7 +1,42 @@
+<!--<div class="logo"></div>
+
+<div class="page" (click)="navTo('profile')"><ion-icon name="arrow-round-forward"></ion-icon> Perfil </div>
+<div class="page" (click)="navTo('list')"><ion-icon name="arrow-round-forward"></ion-icon> Encuestas </div>
+<div class="page" (click)="navTo('newPoll')"><ion-icon name="arrow-round-forward"></ion-icon> Crear encuesta </div>
+<div class="page" (click)="navTo('vote')"><ion-icon name="arrow-round-forward"></ion-icon> Votos </div>
+<div class="page" (click)="navTo('friends')"><ion-icon name="arrow-round-forward"></ion-icon> Amigos </div>
 
 
-<ion-item no-lines (click)="navTo('profile')"> Mi perfil </ion-item>
-<ion-item no-lines (click)="navTo('list')"> Mis encuestas </ion-item>
-<ion-item no-lines (click)="navTo('friends')"> Mis amigos </ion-item>
-<ion-item no-lines (click)="navTo('friends')"> Crear encuesta </ion-item>
+<div class="center">
+<button ion-button color="danger" (click)="navTo('login')"><ion-icon name="close"></ion-icon>Cerrar sesión</button>
+</div>
+-->
 
+
+<ion-content>
+	<div class="logo"></div>
+	<ion-list>
+		<ion-item (click)="navTo('profile')">
+			 Perfil
+		</ion-item>
+		<ion-item (click)="navTo('friends')">
+			 Amigos
+		</ion-item>
+		<ion-item (click)="navTo('vote')">
+			 Votaciones
+		</ion-item>
+		<ion-item>
+			<details class="menu" >
+				<summary> Encuestas </summary>
+				<ion-item no-lines>
+                    <ion-item no-lines class="text-medium" (click)="navTo('list')"> Mis encuestas </ion-item>
+					<ion-item no-lines class="text-medium" (click)="navTo('newPoll')" >Crear encuesta </ion-item>
+				</ion-item>
+			</details>
+		</ion-item>
+	</ion-list>
+	<div class="center">
+<button ion-button color="danger" (click)="navTo('login')"><ion-icon name="close"></ion-icon>Cerrar sesión</button>
+</div>
+
+</ion-content>

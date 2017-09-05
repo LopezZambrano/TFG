@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 
 import { AlertController } from 'ionic-angular';
-import { ProfilePage } from '../../profile/profile'
+import { TabsPage } from '../../vote/tabs'
 import { MyFriendsPage } from '../../my-friends/my-friends'
 import { NewPollPage } from '../../newPoll/newPoll'
 import { ListPage } from '../../list/list'
@@ -20,17 +20,18 @@ export class Shortcut implements OnInit {
 
 
   constructor(public navCtrl: NavController,
-            private platform: Platform,
-            private alertCtrl: AlertController) { }
+    private platform: Platform,
+    private alertCtrl: AlertController) { }
 
   ngOnInit() {
 
   }
 
   goTo(page) {
-    if (page == 'Perfil') {
-      this.navCtrl.push(ProfilePage);
-    } else if (page == 'Nueva encuesta'){
+    if (page == 'Mis votaciones') {
+      this.navCtrl.push(TabsPage);
+
+    } else if (page == 'Nueva encuesta') {
 
       let alert = this.alertCtrl.create();
       alert.setTitle('Seleccione el tipo de encuesta');
@@ -50,19 +51,18 @@ export class Shortcut implements OnInit {
 
       alert.addButton('Cancel');
       alert.addButton({
-      text: 'OK',
-      handler: data => {
-       this.navCtrl.push(NewPollPage, {
-         'type': data
-       })
-      }
-    });
-    alert.present();
-     
+        text: 'OK',
+        handler: data => {
+          this.navCtrl.push(NewPollPage, {
+            'type': data
+          })
+        }
+      });
+      alert.present();
 
-    } else if (page == 'Mis encuestas'){
+    } else if (page == 'Mis encuestas') {
       this.navCtrl.push(ListPage);
-    } else if(page == 'Mis amigos'){
+    } else if (page == 'Mis amigos') {
       this.navCtrl.push(MyFriendsPage);
     }
   }

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-import { NavController, NavParams } from 'ionic-angular';
-
 import { User } from '../../shared/models/user'
 import { AuthService } from '../../shared/services/auth-service'
 import { FriendService } from '../../shared/services/friend-service'
@@ -30,7 +27,13 @@ export class MyFriendsPage implements OnInit {
     search: boolean = true;
 
     ngOnInit() {
-        this.authService.getAllUsers()
+        this.init();
+    }
+
+    init(){
+        this.myFriends = [];
+        this.otherUsers = [];
+         this.authService.getAllUsers()
             .subscribe(users => {
                 this.authService.getUser().subscribe(
                     user => {
@@ -39,7 +42,6 @@ export class MyFriendsPage implements OnInit {
                     err => {
                         console.log(err)
                 })
-
                 users = users.filter(user => user._id !== this.myUser._id)
                 this.friendService.getMyFriends(this.myUser._id).subscribe(friends => {
                     if (friends) {
@@ -48,15 +50,11 @@ export class MyFriendsPage implements OnInit {
                     } else {
                         this.otherUsers = users;
                     }
-
-                    console.log(this.myFriends)
                 })
             },
             err => {
                 console.log(err)
             })
-
-
     }
 
 
@@ -74,6 +72,7 @@ export class MyFriendsPage implements OnInit {
             this.myFriends.push(allUsers.find(user => user._id == idFriends[i]));
 
         }
+        this.myFriends = this.myFriends.sort();
     }
 
 
@@ -94,14 +93,18 @@ export class MyFriendsPage implements OnInit {
 
     select(item) {
         this.filteredList = [];
+        this.query = '';
         this.friendService.addFriend(item._id, this.myUser._id).subscribe(res => {
+            this.init();
         })
+    
 
     }
 
     back() {
         this.query = '';
         this.filteredList = [];
+        this.init();
     }
 
 }

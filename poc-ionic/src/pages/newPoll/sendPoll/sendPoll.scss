@@ -82,7 +82,7 @@ page-sendPoll{
     }
 
     .grey{
-        font-size: $font-semi-medium;
+        font-size: $font-semi-large;
         color: $grey-text;
     }
 
@@ -134,7 +134,12 @@ page-sendPoll{
 
     .subtitle{
         color: $blue-text;
-        font-size: $font-medium;
+            padding-bottom: 5px;
+        font-size: $font-semi-large;
+    }
+
+    .label{
+        font-size: $font-large;
     }
 
     .square{

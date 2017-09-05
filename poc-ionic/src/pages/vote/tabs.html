@@ -1,0 +1,13 @@
+<page-header [back]="'false'"></page-header>
+
+<ion-content>
+<ion-tabs #myTabs tabsPlacement="top">
+
+  <ion-tab [root]="tab1Root" [rootParams]="{poll: pollPending, pending: true}" tabTitle="Pendientes" ></ion-tab>
+
+  <ion-tab [root]="tab2Root" [rootParams]="{poll: pollSend, pending: false}" tabTitle="Editar votos"></ion-tab>
+
+
+</ion-tabs>
+
+</ion-content>

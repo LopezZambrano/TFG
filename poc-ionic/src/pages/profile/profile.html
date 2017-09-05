@@ -1,30 +1,35 @@
-<page-header>
-</page-header>
+<page-header [back]="'false'"></page-header>
 
 <body>
-<ion-content padding>
+  <ion-content padding>
 
-  <h1> {{user.name}}</h1>
-  <div class="mediana"></div><br>
-  <span class="photo">Foto de perfil (Opcional)</span>
-  <button ion-button color="light">Examinar..</button><br>
+    <h1> {{user.name}}</h1>
+    <div class="mediana"></div>
+    <span class="photo">Foto de perfil (Opcional)</span>
+    <button ion-button class="exam">Examinar..</button>
 
-<p>
-  <ion-item>
-    <ion-label color="primary"><ion-icon class="space" name="person"></ion-icon>Username: </ion-label>
-    <ion-input placeholder="Cambiar username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label color="primary"><ion-icon class="space" name="key"></ion-icon>Contraseña: </ion-label>
-    <ion-input placeholder="Nueva contraseña"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label color="primary"><ion-icon class="space" name="calendar"></ion-icon>Año de nacimiento: </ion-label>
-    <ion-input placeholder="Opcional"></ion-input>
-  </ion-item>
-</p>
 
-  <button ion-button class="borrar" color="danger" (click)="borrar()">Borrar cuenta</button>
+    <form [formGroup]="profileForm">
+      <ion-item no-lines>
+        <ion-label  stacked>
+          <ion-icon class="space" name="person"></ion-icon>Username: </ion-label>
+        <ion-input placeholder="Cambiar username" formControlName="user" type="text"></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label  stacked >
+          <ion-icon class="space" name="key"></ion-icon>Contraseña: </ion-label>
+        <ion-input placeholder="Nueva contraseña" formControlName="password" type="password"></ion-input>
+      </ion-item>
 
-</ion-content>
+    </form>
+
+    <div class="but">
+      <button class="blue" ion-button outline (click)="save()">Guardar cambios</button>
+    </div>
+
+<div class="but">
+    <button ion-button class="delete" color="danger" (click)="borrar()">Borrar cuenta</button>
+</div>
+
+  </ion-content>
 </body>

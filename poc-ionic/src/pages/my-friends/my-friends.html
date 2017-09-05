@@ -1,4 +1,4 @@
-<page-header></page-header>
+<page-header [back]="'false'"></page-header>
 <ion-content>
     <!--    <div class="amigos">
     </div>-->
@@ -33,11 +33,17 @@
             <span class="grey">No hay resultados para la búsqueda</span>
         </div>
 
-        <div class="friends" *ngIf="filteredList.length == 0 && !query && myFriends.length > 0">
-            <h1 class="blue">Mis amigos</h1>
+        <div class="friends" *ngIf="filteredList.length == 0 && !query ">
+            <div class="blue">Mis amigos</div>
+
+            <div class="oops" *ngIf="myFriends.length == 0"></div>
+            <div class="warn" *ngIf="myFriends.length == 0"> ¡Aún no tienes amigos en tu lista! </div>
+            
+
             <ion-item *ngFor="let friend of myFriends">
-                 
-                <div><ion-icon name="arrow-round-forward"></ion-icon>{{friend.name}}</div>
+
+                <div>
+                    <ion-icon name="arrow-round-forward"></ion-icon>{{friend.name}}</div>
             </ion-item>
         </div>
     </div>

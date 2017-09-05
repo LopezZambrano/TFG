@@ -11,12 +11,13 @@ body{
     font-size: 18px;
 }
 
-img.mediana{
+.mediana{
     width: 50%;
     height: 26%;
     margin-top: 10px;
     background-image: url(../assets/imgs/23716.svg);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 h1 {
@@ -38,11 +39,7 @@ h1 {
     line-height: 47px;
     }
 
-.button{
-    height: 28px;
-    font-size: 1.3rem;
-    text-transform: none;
-    }
+
 
 .space{
     margin:5px;
@@ -54,9 +51,179 @@ h1 {
     margin:auto;
 }
 
-.item{
-    font-size: 1.5rem;
-}
+    .desc {
+        color: $grey-text;
+        font-size: 20px;
+    }
+
+    .image{
+        width: 100%;
+        height: 25%;
+        background-image: url(../assets/img/logo1.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-top: 52px;
+        margin-bottom: 40px;
+    }
+
+    .padding {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        padding-left: 14px;
+        padding-right: 14px;
+        text-align: center;
+    }
+
+    .title{
+        color: $blue-text;
+        margin: 0px;
+        font-size: 28px;
+
+    }
+
+    .scroll-content{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+
+    .item{
+        padding-left: 0px;
+    }
+
+    .ion-page.show-page {
+        opacity: 1;
+        background: white;
+    }
+
+    .form{
+        padding-top: 6px;
+        padding-left: 12%;
+        padding-right: 12%;
+        float:right;
+        text-align: right;
+        width: 100%;
+    }
+
+    .scroll-content{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .item-input .label, .item-select .label, .item-datetime .label{
+        color: $blue-text;
+        margin: 0px;
+        font-size: $font-medium;
+    }
+
+    .help {
+        color: $grey-text;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+
+    span {
+        color: $blue-text;
+    }
+
+    .error > input {
+        border: 1.3px solid $error;
+    }
+
+    .error{
+        color: $error;
+    }
+
+    input:nth-child(2){
+        border-color: transparent;
+    }
+
+    .orange{
+        color: $orange;
+        text-decoration: underline;
+    }
+
+
+    .link {
+        font-size: 15px;
+        text-align: right;
+        padding-bottom: 20px;
+
+    }
+
+    .button.exam{
+    height: 28px;
+    width: 45%;
+     border:none;
+        text-transform: none;
+        padding: 8px;
+         font-size: 14px;  
+         background-color: $background-grey;
+         color: $grey-text;
+             margin-bottom: 20px;
+    }
+
+    .button {
+        border: 1.2px solid $blue-text;
+        text-transform: none;
+        padding: 8px;
+        height: 34px;
+        width: 45%;
+        max-width: none;
+        margin: 6px;
+        text-align: center;
+        font-size: $font-medium;    
+        opacity:1;
+    }
+
+    .button-outline 
+    .button-effect {
+        background-color: transparent;
+    }
+
+
+    .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner{
+        border-bottom-color:transparent;
+        box-shadow: none;
+    }
+
+    .item.item-input.input-has-focus .item-inner{
+        box-shadow: none;
+    }
+
+    .item.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner{
+        border-bottom-color:transparent;
+        box-shadow: none;
+    }
+
+    .text-input{
+        border: 1.1px solid $blue-text;
+        height: 32px;
+        margin:0;
+    }
+
+    .but{
+        text-align: center;
+    }
+
+    .text-input.text-input-ios{
+        margin: 0px;
+    }
+
+    ion-input{
+        text-align: center;
+    }
+
+    .text-input{
+        font-size: $font-medium;
+    }
+
+    .delete{
+        color:white;
+    }
+
+
 
 
 

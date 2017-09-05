@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Poll } from '../../shared/models/poll' 
 
-import { VotePage } from '../vote/vote'
+import { DetailPollPage } from './detail/detail'
 
 import { PollService } from '../../shared/services/poll-service'
 import { AuthService } from '../../shared/services/auth-service'
@@ -31,12 +31,12 @@ export class ListPage implements OnInit{
         this.polls = res;
       },
       err=>{
-        console.log('error')
+        console.log(err)
       })
   }
 
   showMore(poll){
-    this.navCtrl.push(VotePage, {"poll": poll});
+    this.navCtrl.push(DetailPollPage, {"poll": poll});
   }
 
 }

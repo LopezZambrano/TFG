@@ -2,16 +2,23 @@
 
     <div class="title padding">Encuesta creada con éxito</div>
     <hr class="lineTitle">
-<!--    <div class="padding">
+    <!--    <div class="padding">
         <span class="blue">{{newPoll.title}}</span>
         <ion-item *ngFor="let poll of newPoll.possibilities">
             <span class="grey">{{poll.option}}</span>
         </ion-item>
     </div>-->
+    <div class="poll"></div>
 
     <div class="center">
-        <div><button ion-button color="primary" (click)="save()">Editar encuesta</button></div>
-        <div><button ion-button color="primary" (click)="save()">Invitar más amigos a votar</button></div>
+        <div><button ion-button icon-start outline color="primary" (click)="edit()"> 
+            <ion-icon name="create"></ion-icon>Editar encuesta
+        </button></div>
+
+        <div><button ion-button icon-start outline color="primary" (click)="send()">
+            <ion-icon name="people"></ion-icon>Invitar más amigos a votar
+        </button></div>
+
         <div><button ion-button color="secondary" (click)="save()">Salir</button></div>
     </div>
 </ion-content>
