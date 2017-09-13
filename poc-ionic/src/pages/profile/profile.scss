@@ -14,7 +14,6 @@ body{
 .mediana{
     width: 50%;
     height: 26%;
-    margin-top: 10px;
     background-image: url(../assets/imgs/23716.svg);
     background-size: contain;
     background-repeat: no-repeat;
@@ -28,7 +27,7 @@ h1 {
     border-width: 2px;
     width: 95%;
     margin: auto;
-    padding-top: 8px;
+    padding-top: 4px;
     padding-bottom: 8px;
 }
 
@@ -83,8 +82,9 @@ h1 {
     }
 
     .scroll-content{
-        padding-left: 0px;
-        padding-right: 0px;
+     padding-left: 10%;
+    padding-top: 70px;
+    padding-right: 10%;
     }
 
 
@@ -106,10 +106,6 @@ h1 {
         width: 100%;
     }
 
-    .scroll-content{
-        padding-left: 0px;
-        padding-right: 0px;
-    }
 
     .item-input .label, .item-select .label, .item-datetime .label{
         color: $blue-text;
@@ -153,19 +149,20 @@ h1 {
     }
 
     .button.exam{
-    height: 28px;
-    width: 45%;
-     border:none;
+        height: 28px;
+        width: 45%;
+        border:none;
         text-transform: none;
         padding: 8px;
-         font-size: 14px;  
-         background-color: $background-grey;
-         color: $grey-text;
-             margin-bottom: 20px;
+        font-size: 14px;  
+        background-color: $background-grey;
+        color: $grey-text;
+        margin-bottom: 10px;
     }
 
-    .button {
-        border: 1.2px solid $blue-text;
+    .blueButton {
+        background-color: $ok-green;
+        border: 1.2px solid $ok-green;
         text-transform: none;
         padding: 8px;
         height: 34px;
@@ -175,6 +172,22 @@ h1 {
         text-align: center;
         font-size: $font-medium;    
         opacity:1;
+        margin-top: 20px;
+    }
+
+    .deleteButton{
+        background-color: $error;
+        border: 1.2px solid $error;
+        text-transform: none;
+        padding: 8px;
+        height: 34px;
+        width: 45%;
+        max-width: none;
+        margin: 6px;
+        text-align: center;
+        font-size: $font-medium;    
+        opacity:1;
+        margin-top: 20px;
     }
 
     .button-outline 
@@ -182,6 +195,10 @@ h1 {
         background-color: transparent;
     }
 
+    .blueButton > .button-inner,
+    .deleteButton > .button-inner{
+        color: white;
+    }
 
     .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner{
         border-bottom-color:transparent;
@@ -198,7 +215,7 @@ h1 {
     }
 
     .text-input{
-        border: 1.1px solid $blue-text;
+        border: 1px solid $grey-text;
         height: 32px;
         margin:0;
     }
@@ -222,9 +239,23 @@ h1 {
     .delete{
         color:white;
     }
+    .error-input input:first-child{
+        border: 0.55px solid $error;
+        margin-bottom: 0px;
+    }
 
+  .error{
+      color:$error;
+      font-size: $font-small;
+  }
 
+  .item{
+          margin-top: 5px;
+  }
 
+ion-content{
+    padding: 0;
+}
 
 
 }

@@ -1,0 +1,62 @@
+page-help{
+
+    .scroll-content{
+        padding-top: 60px;
+        
+    }
+
+    .titleHelp{
+        font-size: $font-extra-large;
+        color: $blue-text;
+        background-color: $background-blue;
+        padding-left: 10%;
+        padding-top: 15px;
+        padding-right: 10%;
+        padding-bottom: 15px;
+        background-image: url(../assets/img/logo1.png);
+    }
+
+    .lineTitle {
+        height: 3px;
+        background-color: $blue-text;
+        margin: 0;
+
+    }
+
+    .subtitle{
+        color: $blue-text;
+        background-color: $background-grey;
+        font-size: $font-large;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .grey{
+        width: 100%;
+        color: $grey-text;
+        font-size: $font-semi-large;
+        padding-left: 10%;
+        padding-top: 8px;
+        padding-right: 10%;
+        padding-bottom: 12px;
+        text-align: justify;
+    }
+
+    .helpImg{
+        background-image: $help;
+        background-size: contain;
+        height: 110px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .iconF{
+        color: $blue-text;
+        padding-right: 2px;
+    }
+
+
+}

@@ -11,9 +11,10 @@ page-vote{
     .item{
         font-size: $font-xlarge;
         color:$grey-text;
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-top: 10px;
+        padding-right: 7%;
+        padding-left: 7%;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     button{
@@ -45,12 +46,14 @@ page-vote{
         background-color: $background-grey;
     }
 
-    .option{
+      .option{
         color: $blue-text;
         font-size: $font-large;
         background-color: $background-blue;
         padding: 8px;
-        font-weight: 500;
+        font-weight: 500;  
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
         .lineTitle {
@@ -63,5 +66,41 @@ page-vote{
         font-size: $font-semi-large;
     }
 
+    .blue{
+        color: $blue-text;
+    }
+
+    .grey{
+        color: $grey-text
+    }
+
+    ion-label{
+        flex: auto;
+
+    }
+
+    .blue.label.label-md{
+        max-width: 43px;
+    }
+
+    .hour{
+     //Clases que se aplican en los .item impares
+    &:nth-child(odd) .item {
+        background-color: $background-grey;
+    }
+}
+
+     //Clases que se aplican en los .item impares
+    .radio:nth-child(odd) {
+        background-color: $background-grey;
+    }
+
+.list-md{
+    margin:0
+}
+
+.margin{
+    margin-left: 170px;
+}
 
 }

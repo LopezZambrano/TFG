@@ -3,12 +3,13 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {User} from '../models/user'
 import { HttpCustomService } from '../services/http-custom.service'
- 
+import { CommonService } from '../services/common'
  
 @Injectable()
 export class AuthService {
 
-constructor(public http: HttpCustomService){}
+constructor(public http: HttpCustomService,
+            public common: CommonService){}
 
   user: User;
  
@@ -46,4 +47,28 @@ constructor(public http: HttpCustomService){}
                 return res.json();
             })
   }
+
+
+  updateUser(name?,password?){
+     if (name !== null){
+         name = this.common.capitalize(name)
+     }
+     let url = `http://localhost:3000/user/${this.user._id}`;
+      let body = {"name": name, "password": password};
+        return this.http.doPut(url, body)
+            .map((res) => {
+                this.user = res.json();
+                return res.json();
+            })
+  }
+
+  deleteUser(){
+      let url = `http://localhost:3000/user/delete/${this.user._id}`;
+        return this.http.doGet(url)
+            .map((res) => {
+                this.user = res.json();
+                return res.json();
+            })
+  }
+
 }

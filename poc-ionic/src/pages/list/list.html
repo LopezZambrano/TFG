@@ -8,7 +8,6 @@
   <div *ngIf="polls">
     <ion-item *ngFor="let poll of polls" (click)="showMore(poll)">
       <p class="title">{{poll.title}}<br>
-        <span class="grey"> Participantes: </span>
       </p>
     </ion-item>
   </div>

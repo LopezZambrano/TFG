@@ -12,7 +12,7 @@ export class VoteService {
     constructor(public http: HttpCustomService,
         public authService: AuthService) { }
 
-    saveVote(options, id, poll): Observable<any> {
+    saveVote(options, id): Observable<any> {
             let url = `http://localhost:3000/vote/add`;
             let body = { "options": options, "idPoll": id };
             return this.http.doPost(url, body)

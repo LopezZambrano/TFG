@@ -19,11 +19,23 @@ page-listPoll {
 
     .warn{
         text-align: center;
-        padding-top: 20px;
         color: grey;
         font-size: $font-xxlarge;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .white{
+        margin-top: 19%;
+        background-color: white;
+        padding-top: 1px;
+        padding-bottom: 42px;
+        border-radius: 50%;
+
+    }
+
+    .item{
+        margin-top: 10px;
     }
 
 

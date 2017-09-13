@@ -21,6 +21,9 @@ import { VotePage } from '../pages/vote/vote/vote'
 import { MyFriendsPage } from '../pages/my-friends/my-friends'
 import { ListPollPage } from '../pages/vote/listPoll/listPoll'
 import { TabsPage } from '../pages/vote/tabs'
+import { HelpPage } from '../pages/help/help'
+import { Ng2OrderModule } from 'ng2-order-pipe';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,6 +37,7 @@ import { FriendService } from '../shared/services/friend-service';
 import { CommonService } from '../shared/services/common'
 import { Header } from '../shared/component/header/header'
 import { Menu } from '../shared/component/menu/menu'
+import { Calendar } from '../shared/component/calendar/calendar'
 
 @NgModule({
   declarations: [
@@ -55,9 +59,12 @@ import { Menu } from '../shared/component/menu/menu'
     CorrectPollPage,
     Menu, 
     ListPollPage,
-    TabsPage
+    TabsPage,
+    HelpPage,
+    Calendar
   ],
   imports: [
+    Ng2OrderModule,
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
@@ -82,7 +89,9 @@ import { Menu } from '../shared/component/menu/menu'
     CorrectPollPage,
     Menu,
     ListPollPage,
-    TabsPage
+    TabsPage,
+    HelpPage, 
+    Calendar
   ],
   providers: [
     Network,

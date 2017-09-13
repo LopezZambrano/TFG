@@ -1,5 +1,6 @@
 page-login {
 
+    
     .desc {
         color: $grey-text;
         font-size: 20px;
@@ -91,15 +92,9 @@ page-login {
     .orange{
         color: $orange;
         text-decoration: underline;
+        font-size: $font-semi-large;
     }
 
-
-    .link {
-        font-size: 15px;
-        text-align: right;
-        padding-bottom: 20px;
-
-    }
 
     .button {
         border: 1.3px solid $blue-text;
@@ -119,6 +114,9 @@ page-login {
         background-color: transparent;
     }
 
+    .link{
+        padding-bottom: 18%;
+    }
 
     .item.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner{
         border-bottom-color:transparent;

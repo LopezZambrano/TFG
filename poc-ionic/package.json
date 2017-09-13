@@ -1,8 +1,7 @@
 {
-  "name": "ionic-hello-world",
+  "name": "planGo",
   "version": "0.0.0",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Sara Lopez Zambrano",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -52,7 +51,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "poc-ionic: An Ionic project",
+  "description": "planGo: project to create polls and vote them",
   "cordova": {
     "plugins": {
       "cordova-plugin-console": {},

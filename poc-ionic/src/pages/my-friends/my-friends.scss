@@ -5,8 +5,8 @@ page-my-friends{
     }
 
     .content{
-        padding-left: 10%;
-        padding-right: 10%;
+        padding-left: 8%;
+        padding-right: 8%;
     }
 
     .item-input .label, .item-select .label, .item-datetime .label{
@@ -75,32 +75,35 @@ page-my-friends{
         background-position: center;
     }
 
-    .blue{
+    .blue {
         margin-top: 20px;
         font-size: $font-xxxlarge;
         color: $blue-text;
         margin-bottom: 5px;
     }
 
-    .grey{
+    .grey {
         font-size: $font-semi-large;
         color: $grey-text;
     }
 
-    .search{
+    .search {
         display: flex;
         padding-left: 6%;
         padding-right: 6%;
     }
 
+    .icon.icon-md.ion-md-arrow-round-forward.item-icon {
+        color: $blue-text;
+    }
     .icon.icon-md.ion-md-arrow-round-back,
-    .icon.icon-md.ion-md-contacts{
+    .icon.icon-md.ion-md-contacts {
         font-size: 2.2em;
         color: $blue-text;
         padding-top: 6px;
     }
 
-    .line{
+    .line {
         margin-left: 15%;
         margin-right: 8%;
         border-width: thin;
@@ -108,16 +111,16 @@ page-my-friends{
         background-color:$blue-text;
     }
 
-    .label-md{
+    .label-md {
         margin: 0;
         font-size: $font-large;
     }
 
-    ion-label{
+    ion-label {
         color: $grey-text;
     }
 
-    .warn{
+    .warn {
         text-align: center;
         padding-top: 20px;
         color: grey;
@@ -125,5 +128,48 @@ page-my-friends{
         padding-left: 5px;
         padding-right: 5px;
     }
+
+    .white{
+        margin-top: 19%;
+        background-color: white;
+        padding-top: 1px;
+        padding-bottom: 42px;
+        border-radius: 50%;
+
+    }
+
+.backg{
+    padding-left: 8%;
+}
+
+
+.item.backg{
+     //Clases que se aplican en los .item impares
+    &:nth-child(odd) {
+        background-color: $background-blue;
+    }
+}
+
+    .lineTitle {
+        height: 3px;
+        background-color: $blue-text;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+
+    .padding{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+     .delete {
+        border-radius: 50%;
+        background-color: red;
+        height: 30px;
+        width: 30px;
+    }
+
+
 
 }

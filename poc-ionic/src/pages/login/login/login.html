@@ -1,14 +1,12 @@
 <page-header login="false">
 </page-header>
 <div class="image"></div>
-
-
-
+ 
 <div class="form">
 
     <form [formGroup]="loginForm">
         <ion-item no-lines class="item-outline">
-            <ion-label stacked>Usuario: </ion-label>
+            <ion-label stacked>Email: </ion-label>
             <ion-input [ngClass]="{'error': error.user}" formControlName="user" type="user"></ion-input>
         </ion-item>
 

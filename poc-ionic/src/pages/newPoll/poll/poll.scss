@@ -24,6 +24,10 @@ page-poll{
         color: $blue-text;
     }
 
+    .title{
+        padding-bottom: 10px;
+    }
+
 
     .select-md,
     .select-ios {
@@ -43,6 +47,7 @@ page-poll{
 
     .datetime-text{
         min-height: 0;
+        font-size: $font-semi-large;
     }   
 
     .item{
@@ -65,7 +70,7 @@ page-poll{
         color: white;
         background: $blue-text;
         margin-left: 10px;
-        width: 46%;
+       
      }
 
      ion-chip .button {
@@ -89,8 +94,12 @@ page-poll{
 
     .chips{
         padding-left: 4px;
-        padding-bottom: 20px;
+        padding-bottom: 5px;
         padding-top: 5px;
+    }
+
+    .margin{
+        padding-bottom: 10px;
     }
 
     .space{
@@ -110,6 +119,7 @@ page-poll{
 
     .add{
         text-align: right;
+        padding-bottom: 10px;
     }
 
     .button{
@@ -133,6 +143,10 @@ page-poll{
     width: 100%;
     height: 30px;
     line-height: 25px;
+}
+
+.padding.chip.chip-md{
+    padding-right: 10px;
 }
 
 .chips.text{
@@ -160,12 +174,10 @@ page-poll{
     }
 
 .label{
+    display: inline;
     margin:0;
 }
 
-.dateChip.disable-hover.button.button.button-default.button-default{
-    height: 19px;
-}
 
 details summary::-webkit-details-marker {
     color: $blue-text;
@@ -174,7 +186,7 @@ details summary::-webkit-details-marker {
 summary{
     color: $blue-text;
     font-size: 18px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     padding-left: 20px;
 
 }
@@ -182,4 +194,14 @@ summary{
 .margin{
     margin-bottom: 20px;
 }
+
+.icon.icon-md.ion-md-remove-circle,
+.icon.icon-md.ion-md-add-circle{
+    color: $blue-text;
+    padding-left: 15px;
+    padding-right: 5px;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
 }

@@ -5,39 +5,88 @@
         <div class="titlePoll">
             {{poll.title}}
         </div>
-       <!-- <hr class="lineTitle">-->
-        <div class="extra">
-            <div>Ubicación: {{poll.ubication}}</div><br>
-            <div>Comentario: {{poll.commentary}}</div>
+        <!-- <hr class="lineTitle">-->
+        <div class="extra" *ngIf="poll.ubication || poll.commentary">
+            <div *ngIf="poll.ubication">Ubicación: {{poll.ubication}}</div><br>
+            <div *ngIf="poll.commentary">Comentario: {{poll.commentary}}</div>
         </div>
     </div>
 
     <div *ngIf="!poll.oneVote">
         <div class="border">
             <div class="option">Opciones</div>
-            <ion-item *ngFor="let possibility of poll.possibilities">
-                <ion-label *ngIf="text">{{possibility.option}}</ion-label>
-                <ion-label *ngIf="!text">{{possibility.option | date: 'dd-MM-yyyy'}}</ion-label>
-                <ion-checkbox (ionChange)="check(possibility)"></ion-checkbox>
-            </ion-item>
+            <div *ngFor="let possibility of poll.possibilities ; let i = index">
+                <ion-item no-lines *ngIf="text">
+                    <ion-label *ngIf="text">{{possibility.option}}</ion-label>
+                    <ion-checkbox (ionChange)="check(possibility)"></ion-checkbox>
+                </ion-item>
+            </div>
         </div>
+
+        <div *ngIf="!text">
+            <div class='hour' *ngFor="let possibility of poll.possibilities ; let i = index">
+                <ion-item no-lines>
+                    <ion-label class="blue">Día:</ion-label>
+                    <ion-label class="grey">{{possibility.option.date | date: 'dd-MM-yyyy'}}</ion-label>
+                    <ion-label class="blue" *ngIf="possibility.option.hour != ''">Hora:</ion-label>
+                    <ion-label class="grey">{{possibility.option.hour}}</ion-label>
+                    <ion-checkbox (ionChange)="check(possibility,hour)"></ion-checkbox>
+                </ion-item>
+            </div>
+        </div>
+
         <div class="save">
             <button ion-button color="secondary" (click)="saveCheck()">Guardar mi voto</button>
         </div>
     </div>
 
-
     <div *ngIf="poll.oneVote">
+
+        <div class="border">
+            <div class="option">Opciones</div>
+            <div *ngIf="text">
+                <ion-list radio-group>
+                    <ion-item class="radio" *ngFor="let possibility of poll.possibilities">
+                        <ion-label *ngIf="text">{{possibility.option}}</ion-label>
+                        <ion-radio (ionSelect)="radio(possibility)"></ion-radio>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+
+        <div *ngIf="!text">
+
+            <ion-list radio-group>
+                <ion-item class="radio" no-lines *ngFor="let possibility of poll.possibilities; let i = index">
+                    <ion-label class="blue">Día:</ion-label>
+                    <ion-label class="grey">{{possibility.option.date | date: 'dd-MM-yyyy'}}</ion-label>
+                    <ion-label class="blue" *ngIf="possibility.option.hour != ''">Hora:</ion-label>
+                    <ion-label class="grey">{{possibility.option.hour}}</ion-label>
+                    <ion-radio (ionSelect)="radio(possibility,hour)"></ion-radio>
+                </ion-item>
+            </ion-list>
+
+        </div>
+
+
+        <!--
         <div class="border">
             <div class="option">Opciones</div>
             <ion-list radio-group>
-                <ion-item *ngFor="let possibility of poll.possibilities">
+                <ion-item *ngFor="let possibility of poll.possibilities; let i = index">
+
                     <ion-label *ngIf="text">{{possibility.option}}</ion-label>
-                    <ion-label *ngIf="!text">{{possibility.option | date: 'dd-MM-yyyy'}}</ion-label>
+                    <ion-label *ngIf="!text">{{possibility.option.date | date: 'dd-MM-yyyy'}}</ion-label>
+                    <ion-label *ngFor="let hour of possibility[i].option.hour">Hora: {{hour}}</ion-label>
+
+
                     <ion-radio (ionSelect)="radio(possibility)"></ion-radio>
                 </ion-item>
             </ion-list>
-        </div>
+        </div>-->
+
+
+
         <div class="save">
             <button ion-button color="secondary" class="exit" (click)="saveRadio()">Guardar mi voto</button>
         </div>

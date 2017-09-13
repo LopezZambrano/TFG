@@ -1,7 +1,6 @@
 <page-header [back]="'false'"></page-header>
 
-<body>
-  <ion-content padding>
+  <ion-content>
 
     <h1> {{user.name}}</h1>
     <div class="mediana"></div>
@@ -13,23 +12,27 @@
       <ion-item no-lines>
         <ion-label  stacked>
           <ion-icon class="space" name="person"></ion-icon>Username: </ion-label>
-        <ion-input placeholder="Cambiar username" formControlName="user" type="text"></ion-input>
+        <ion-input placeholder="Cambiar username" formControlName="user" type="text" [ngClass]="{'error-input': errors['user'].length!=0}"></ion-input>
       </ion-item>
+       <span *ngIf="errors['user'].length!=0" class="error">{{errors['user'][0]}}</span>
       <ion-item no-lines>
         <ion-label  stacked >
-          <ion-icon class="space" name="key"></ion-icon>Contraseña: </ion-label>
-        <ion-input placeholder="Nueva contraseña" formControlName="password" type="password"></ion-input>
+          <ion-icon class="space" name="key"></ion-icon> Nueva contraseña: </ion-label>
+        <ion-input placeholder="Nueva contraseña" formControlName="password" type="password" [ngClass]="{'error-input': errors['password'].length!=0}"></ion-input>
       </ion-item>
-
+       <span *ngIf="errors['password'].length!=0" class="error">{{errors['password'][0]}}</span>
+      <ion-item no-lines>
+        <ion-label  stacked >
+          <ion-icon class="space" name="key"></ion-icon>Contraseña actual *</ion-label>
+        <ion-input placeholder="Contraseña actual" formControlName="confirm" type="password" [ngClass]="{'error-input': errors['confirm'].length!=0}"></ion-input>
+      </ion-item>
+      <span *ngIf="errors['confirm'].length!=0" class="error">{{errors['confirm'][0]}}</span>
     </form>
 
     <div class="but">
-      <button class="blue" ion-button outline (click)="save()">Guardar cambios</button>
+      <button class="blueButton" ion-button outline (click)="save()">Guardar cambios</button>
+      <button ion-button class="deleteButton"(click)="borrar()">Borrar cuenta</button>
     </div>
 
-<div class="but">
-    <button ion-button class="delete" color="danger" (click)="borrar()">Borrar cuenta</button>
-</div>
 
   </ion-content>
-</body>

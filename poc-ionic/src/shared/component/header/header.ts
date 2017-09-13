@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NavController, Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HomePage } from '../../../pages/home/home'
+import { HelpPage } from '../../../pages/help/help'
 
 import { AuthService } from '../../services/auth-service'
 
@@ -35,7 +36,7 @@ export class Header implements OnInit {
   }
 
   navToHelpPage() {
-    //this.navCtrl.push(HelpPage);
+    this.navCtrl.push(HelpPage);
   }
 
   navToHome() {

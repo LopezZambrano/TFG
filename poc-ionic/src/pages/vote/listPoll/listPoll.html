@@ -1,15 +1,16 @@
-
 <ion-content>
 
-<div class="oops"  *ngIf="polls.length==0"></div>
-<div class="warn" *ngIf="polls.length==0 && pending"> ¡No tienes votaciones pendientes!</div>
-<div class="warn" *ngIf="polls.length==0 && !pending"> ¡Aún no has votado ninguna encuesta!</div>
-
-  <div *ngIf="polls">
-    <ion-item *ngFor="let poll of polls" (click)="showMore(poll)">
-      <p class="title">{{poll.title}}<br>
-        <span class="grey"> Participantes: </span>
-      </p>
-    </ion-item>
+  <div class="white" *ngIf="polls.length==0">
+    <div class="oops" *ngIf="polls.length==0"></div>
+    <div class="warn" *ngIf="polls.length==0 && pending"> ¡No tienes votaciones pendientes!</div>
+    <div class="warn" *ngIf="polls.length==0 && !pending"> ¡Aún no has votado ninguna encuesta!</div>
+  </div>
+  <div>
+    <div *ngIf="polls.length!=0">
+      <ion-item *ngFor="let poll of polls" (click)="showMore(poll)">
+        <p class="title">{{poll.title}}<br>
+        </p>
+      </ion-item>
+    </div>
   </div>
 </ion-content>

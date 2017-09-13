@@ -6,6 +6,7 @@ import { FriendService } from '../../shared/services/friend-service'
 
 
 
+
 @Component({
     selector: 'page-my-friends',
     templateUrl: 'my-friends.html'
@@ -19,7 +20,8 @@ export class MyFriendsPage implements OnInit {
     public query = '';
     public filteredList = [];
     public elementRef;
-
+  array: any[] = [{ name: 'John'} , { name: 'Mary' }, { name: 'Adam' }, {name: 'Ana'}, {name: 'David'}];
+  order: string = 'name';
 
     myFriends: User[] = [];
     otherUsers: User[] = [];
@@ -30,10 +32,10 @@ export class MyFriendsPage implements OnInit {
         this.init();
     }
 
-    init(){
+    init() {
         this.myFriends = [];
         this.otherUsers = [];
-         this.authService.getAllUsers()
+        this.authService.getAllUsers()
             .subscribe(users => {
                 this.authService.getUser().subscribe(
                     user => {
@@ -41,7 +43,7 @@ export class MyFriendsPage implements OnInit {
                     },
                     err => {
                         console.log(err)
-                })
+                    })
                 users = users.filter(user => user._id !== this.myUser._id)
                 this.friendService.getMyFriends(this.myUser._id).subscribe(friends => {
                     if (friends) {
@@ -69,7 +71,10 @@ export class MyFriendsPage implements OnInit {
     getMyFriendsForId(allUsers, idFriends) {
         let i;
         for (i = 0; i < idFriends.length; i++) {
-            this.myFriends.push(allUsers.find(user => user._id == idFriends[i]));
+            let us = allUsers.find(user => user._id == idFriends[i]);
+            if (us !== undefined) {
+                this.myFriends.push(us.name);
+            }
 
         }
         this.myFriends = this.myFriends.sort();
@@ -97,7 +102,7 @@ export class MyFriendsPage implements OnInit {
         this.friendService.addFriend(item._id, this.myUser._id).subscribe(res => {
             this.init();
         })
-    
+
 
     }
 

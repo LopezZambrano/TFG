@@ -75,8 +75,13 @@ export class SendPollPage implements OnInit {
 
   getMyFriendsForId(allUsers, idFriends) {
     let i;
+    let us;
     for (i = 0; i < idFriends.length; i++) {
-      this.myFriends.push(allUsers.find(user => user._id == idFriends[i]));
+      us = allUsers.find(user => user._id == idFriends[i]);
+      if (us){
+        this.myFriends.push(allUsers.find(user => user._id == idFriends[i]));
+      }
+
     }
   }
 

@@ -3,12 +3,14 @@ page-list {
         padding-top: 75px;
         padding-left: 5%;
         padding-right: 5%;
+        background-image: url(../assets/img/logo1.png);
     }
 
     .title{
         font-size:$font-xxlarge;
         color:#3398DC;
         text-transform: uppercase;
+            white-space: normal;
     }
 
     .grey{
@@ -26,6 +28,14 @@ page-list {
         padding-right: 10px;
         
         
+    }
+
+    .item:nth-child(odd) {
+        background-color: $background-grey;
+    }
+
+    .item{
+        margin-top: 10px;
     }
 
 }

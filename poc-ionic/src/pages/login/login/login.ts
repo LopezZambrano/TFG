@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
 import { AuthService } from '../../../shared/services/auth-service';
@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
   password: string;
   texto: string;
 
-  constructor(private nav: NavController,
+  constructor(private nav: App,
     private auth: AuthService,
     public alertCtrl: AlertController,
     public formBuilder: FormBuilder) { }
@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
       this.auth.login(this.loginForm.controls['user'].value, this.loginForm.controls['password'].value)
         .subscribe(res=>{
           console.log(res)
-          this.nav.setRoot(HomePage);
+          this.nav.getRootNav().push(HomePage);
         },
         err=>{
           let alert = this.alertCtrl.create({
@@ -72,11 +72,9 @@ export class LoginPage implements OnInit {
   }
 
   register() {
-    this.nav.push(RegisterPage);
+    this.nav.getRootNav().push(RegisterPage);
   }
 
-  createAccount() {
-    this.nav.setRoot(RegisterPage);
-  }
+
 
 } 

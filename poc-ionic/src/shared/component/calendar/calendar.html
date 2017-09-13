@@ -1,0 +1,16 @@
+<div class="margin">
+    <div class="title">
+        <ion-icon class="left" name="ios-arrow-back" (click)="backMonth()"></ion-icon>
+        <span class="space">{{month | date:'LLLL'}}</span>
+        <span>{{month | date:'yyyy'}}</span>
+        <ion-icon class="right" name="ios-arrow-forward" (click)="nextMonth()"></ion-icon>
+    </div>
+    <div class="calendar-container">
+        <div class="calendar-cell" *ngFor="let c of cells; let i = index" [attr.status]="getStatus(i)">
+            <span (click)="selectedDay(i)">{{getDay(i)}}</span>
+        </div>
+    </div>
+
+   <!-- <div class="squareNotAvailable"></div><span class="small">Opciones</span><br>-->
+<!--    <div class="squareSelect"></div><span class="small">Seleccionado</span>-->
+</div>
