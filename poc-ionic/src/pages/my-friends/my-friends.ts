@@ -85,6 +85,8 @@ export class MyFriendsPage implements OnInit {
         this.search = true;
         if (this.query !== "") {
             this.filteredList = this.otherUsers.filter(function (el) {
+                console.log(el)
+                console.log(this.query)
                 return el.name.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
             }.bind(this));
             if (this.filteredList.length == 0) {

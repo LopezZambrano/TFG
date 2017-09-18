@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Network } from '@ionic-native/network';
-
 import { ErrorService } from '../services/error.service';
+import { config } from '../config'
 
 @Injectable()
 export class HttpCustomService {

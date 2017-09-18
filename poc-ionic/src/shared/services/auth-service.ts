@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {User} from '../models/user'
 import { HttpCustomService } from '../services/http-custom.service'
 import { CommonService } from '../services/common'
+import { config } from '../config'
  
 @Injectable()
 export class AuthService {
@@ -14,7 +15,7 @@ constructor(public http: HttpCustomService,
   user: User;
  
   login(email:string, password:string): Observable<any> {
-      let url = `http://localhost:3000/user/login`;
+      let url = `${config.baseUrl}/user/login`;
       let body = {"email": email, "password":password};
         return this.http.doPost(url, body)
             .map((res) => {
@@ -28,7 +29,7 @@ constructor(public http: HttpCustomService,
   }
 
  register(credentials) {
-      let url = `http://localhost:3000/user/register`;
+      let url = `${config.baseUrl}/user/register`;
       let body = {"name": credentials.user, "email": credentials.email, "password":credentials.password};
         return this.http.doPost(url, body)
             .map((res) => {
@@ -41,7 +42,7 @@ constructor(public http: HttpCustomService,
   }
 
   getAllUsers():Observable<User[]>{
-    let url = `http://localhost:3000/user`;
+    let url = `${config.baseUrl}/user`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json();
@@ -53,7 +54,7 @@ constructor(public http: HttpCustomService,
      if (name !== null){
          name = this.common.capitalize(name)
      }
-     let url = `http://localhost:3000/user/${this.user._id}`;
+     let url = `${config.baseUrl}/user/${this.user._id}`;
       let body = {"name": name, "password": password};
         return this.http.doPut(url, body)
             .map((res) => {
@@ -63,7 +64,7 @@ constructor(public http: HttpCustomService,
   }
 
   deleteUser(){
-      let url = `http://localhost:3000/user/delete/${this.user._id}`;
+      let url = `${config.baseUrl}/user/delete/${this.user._id}`;
         return this.http.doGet(url)
             .map((res) => {
                 this.user = res.json();

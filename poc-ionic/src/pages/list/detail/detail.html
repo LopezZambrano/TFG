@@ -5,15 +5,16 @@
   <div class="titlePoll">
     {{poll.title}}
   </div>
+
   <div class="extra" *ngIf="poll.ubication || poll.commentary">
     <div *ngIf="poll.ubication">Ubicación: {{poll.ubication}}</div><br>
     <div *ngIf="poll.commentary">Comentario: {{poll.commentary}}</div>
   </div>
 
-
-  <div class="oops" *ngIf="userVote.length==0"></div>
-  <div class="warn" *ngIf="userVote.length==0"> ¡Esta encuesta no tiene votos!</div>
-
+  <div class="white" *ngIf="userVote.length==0">
+    <div class="oops" *ngIf="userVote.length==0"></div>
+    <div class="warn" *ngIf="userVote.length==0"> ¡Esta encuesta no tiene votos!</div>
+  </div>
 
   <div *ngIf="userVote.length > 0">
 

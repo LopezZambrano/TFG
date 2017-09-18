@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { HttpCustomService } from '../services/http-custom.service'
 import { AuthService } from '../services/auth-service'
-
+import { config } from '../config'
 
 
 @Injectable()
@@ -13,7 +13,7 @@ export class VoteService {
         public authService: AuthService) { }
 
     saveVote(options, id): Observable<any> {
-            let url = `http://localhost:3000/vote/add`;
+            let url = `${config.baseUrl}/vote/add`;
             let body = { "options": options, "idPoll": id };
             return this.http.doPost(url, body)
                 .map((res) => {
@@ -22,7 +22,7 @@ export class VoteService {
     }
 
     saveSendVote(idUser, idPoll) {
-        let url = `http://localhost:3000/send/add`;
+        let url = `${config.baseUrl}/send/add`;
         let body = { "idUser": idUser, "idPolls": idPoll };
         return this.http.doPost(url, body)
             .map((res) => {
@@ -33,7 +33,7 @@ export class VoteService {
  
 
     getVote(id) {
-        let url = `http://localhost:3000/vote/${id}`;
+        let url = `${config.baseUrl}/vote/${id}`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json()[0];
@@ -41,7 +41,7 @@ export class VoteService {
     }
 
     getPendingVote(id){
-        let url = `http://localhost:3000/pending/${id}`;
+        let url = `${config.baseUrl}/pending/${id}`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json()[0].idPolls;
@@ -49,7 +49,7 @@ export class VoteService {
     }
 
     getSendVote(id){
-        let url = `http://localhost:3000/send/${id}`;
+        let url = `${config.baseUrl}/send/${id}`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json()[0].idPolls;

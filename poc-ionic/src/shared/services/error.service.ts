@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AlertController, Alert } from 'ionic-angular';
 import { NavController, App } from 'ionic-angular';
-
+import { config } from '../config'
 
 //Este servicio va a devolver un objeto alert para mostrar en la página que lo invoca
 @Injectable()

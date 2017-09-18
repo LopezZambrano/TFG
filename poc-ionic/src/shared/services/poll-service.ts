@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { HttpCustomService } from '../services/http-custom.service'
 import { Poll } from '../models/poll'
-
+import { config } from '../config'
 
 @Injectable()
 export class PollService {
@@ -11,7 +11,7 @@ export class PollService {
     constructor(public http: HttpCustomService) { }
 
     savePoll(poll: Poll, id): Observable<any> {
-        let url = `http://localhost:3000/poll/add`;
+        let url = `${config.baseUrl}/poll/add`;
         let body = {
             "commentary": poll.commentary, "negativeVote": poll.negativeVote, "oneVote": poll.oneVote,
             "possibilities": poll.possibilities, "private": poll.private, "title": poll.title,
@@ -24,7 +24,7 @@ export class PollService {
     }
 
     getPolls(id) {
-        let url = `http://localhost:3000/poll/${id}`;
+        let url = `${config.baseUrl}/poll/${id}`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json();
@@ -32,7 +32,7 @@ export class PollService {
     }
 
     getAllPolls() {
-        let url = `http://localhost:3000/poll`;
+        let url = `${config.baseUrl}/poll`;
         return this.http.doGet(url)
             .map((res) => {
                 return res.json();
@@ -40,7 +40,7 @@ export class PollService {
     }
 
     saveSendPoll(idUserToSend, idPoll) {
-        let url = `http://localhost:3000/pending/add`;
+        let url = `${config.baseUrl}/pending/add`;
         let body = { "idUser": idUserToSend, "idPolls": idPoll };
         return this.http.doPost(url, body)
             .map((res) => {
@@ -49,7 +49,7 @@ export class PollService {
     }
 
     deleteSendPoll(idUserToSend, idPoll) {
-        let url = `http://localhost:3000/pending/delete`;
+        let url = `${config.baseUrl}/pending/delete`;
         let body = { "idUser": idUserToSend, "idPolls": idPoll };
         return this.http.doPost(url, body)
             .map((res) => {
