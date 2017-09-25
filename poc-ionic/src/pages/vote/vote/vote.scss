@@ -71,7 +71,8 @@ page-vote{
     }
 
     .grey{
-        color: $grey-text
+        color: $grey-text;
+        font-size: $font-semi-large;
     }
 
     ion-label{
@@ -81,6 +82,7 @@ page-vote{
 
     .blue.label.label-md{
         max-width: 43px;
+        font-size: $font-semi-large;
     }
 
     .hour{
@@ -101,6 +103,10 @@ page-vote{
 
 .margin{
     margin-left: 170px;
+}
+
+.checkbox.checkbox-md{
+    margin: 0;
 }
 
 }

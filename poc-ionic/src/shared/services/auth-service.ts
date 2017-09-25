@@ -50,12 +50,12 @@ constructor(public http: HttpCustomService,
   }
 
 
-  updateUser(name?,password?){
-     if (name !== null){
-         name = this.common.capitalize(name)
+  updateUser(password?,newName?,newPassword?){
+     if (newName !== null){
+         newName = this.common.capitalize(newName)
      }
      let url = `${config.baseUrl}/user/${this.user._id}`;
-      let body = {"name": name, "password": password};
+      let body = { 'newName': newName, 'newPassword': newPassword, "password": password};
         return this.http.doPut(url, body)
             .map((res) => {
                 this.user = res.json();

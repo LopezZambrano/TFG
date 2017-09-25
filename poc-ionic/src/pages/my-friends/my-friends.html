@@ -40,9 +40,9 @@
         <hr class="lineTitle" *ngIf="myFriends.length != 0">
 
         <div class="content">
-            <div class="white" *ngIf="myFriends.length == 0">
-                <div class="oops" *ngIf="myFriends.length == 0"></div>
-                <div class="warn" *ngIf="myFriends.length == 0"> ¡Aún no tienes amigos en tu lista! </div>
+            <div class="white" *ngIf="empty">
+                <div class="oops" *ngIf="empty"></div>
+                <div class="warn" *ngIf="empty"> ¡Aún no tienes amigos en tu lista! </div>
             </div>
         </div>
 

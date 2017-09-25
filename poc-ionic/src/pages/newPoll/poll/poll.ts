@@ -77,7 +77,7 @@ export class PollPage implements OnInit {
     this.today = new Date();
     this.todayS = this.today.toISOString()
     // We put as departureDate, to today
-    this.minDateReturn = new Date(this.today.getFullYear(), this.today.getMonth(), this.today.getDate());
+    this.minDateReturn = new Date(this.today.getFullYear(), this.today.getMonth()+1, this.today.getDate());
     // We set the max date in 5 years.
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.today.getFullYear() + 1);

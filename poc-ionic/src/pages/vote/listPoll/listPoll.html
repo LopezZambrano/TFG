@@ -6,7 +6,7 @@
     <div class="warn" *ngIf="polls.length==0 && !pending"> ¡Aún no has votado ninguna encuesta!</div>
   </div>
   <div>
-    <div *ngIf="polls.length!=0">
+    <div *ngIf="polls.length>0">
       <ion-item *ngFor="let poll of polls" (click)="showMore(poll)">
         <p class="title">{{poll.title}}<br>
         </p>

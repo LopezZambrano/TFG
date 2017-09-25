@@ -29,6 +29,20 @@ h1 {
     margin: auto;
     padding-top: 4px;
     padding-bottom: 8px;
+        margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+details summary::-webkit-details-marker {
+    color: $blue-text;
+    font-size: 25px;
+}
+summary{
+    color: $blue-text;
+    font-size: 18px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+
 }
 
 .text{
@@ -150,7 +164,7 @@ h1 {
 
     .button.exam{
         height: 28px;
-        width: 45%;
+        width: 50%;
         border:none;
         text-transform: none;
         padding: 8px;
@@ -166,7 +180,7 @@ h1 {
         text-transform: none;
         padding: 8px;
         height: 34px;
-        width: 45%;
+        width: 50%;
         max-width: none;
         margin: 6px;
         text-align: center;
@@ -181,13 +195,13 @@ h1 {
         text-transform: none;
         padding: 8px;
         height: 34px;
-        width: 45%;
+        width: 50%;
         max-width: none;
         margin: 6px;
         text-align: center;
         font-size: $font-medium;    
         opacity:1;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .button-outline 
@@ -256,6 +270,21 @@ h1 {
 ion-content{
     padding: 0;
 }
+
+.icon.icon-md.ion-md-create{
+    color: $blue-text;
+    padding-left: 15px;
+    padding-right: 5px;
+    font-size: 22px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.label{
+    display: inline;
+    margin:0;
+}
+
 
 
 }

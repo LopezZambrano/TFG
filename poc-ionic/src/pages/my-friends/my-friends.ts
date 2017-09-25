@@ -14,25 +14,28 @@ import { FriendService } from '../../shared/services/friend-service'
 export class MyFriendsPage implements OnInit {
 
     constructor(public authService: AuthService,
-        public friendService: FriendService) { }
+        public friendService: FriendService) {
+        this.myFriends = [{ 'name': '', 'email': '', 'password': 'a', '_id': 111 }];
+    }
 
 
     public query = '';
     public filteredList = [];
     public elementRef;
-  array: any[] = [{ name: 'John'} , { name: 'Mary' }, { name: 'Adam' }, {name: 'Ana'}, {name: 'David'}];
-  order: string = 'name';
 
-    myFriends: User[] = [];
+    myFriends: User[] = [{ 'name': '', 'email': '', 'password': 'a', '_id': 111 }];
     otherUsers: User[] = [];
     myUser: User;
     search: boolean = true;
+    empty: boolean = false;
 
     ngOnInit() {
+    
         this.init();
     }
 
     init() {
+        this.empty = true;
         this.myFriends = [];
         this.otherUsers = [];
         this.authService.getAllUsers()
@@ -49,10 +52,13 @@ export class MyFriendsPage implements OnInit {
                     if (friends) {
                         this.getMyFriendsForId(users, friends.idFriends);
                         this.getOtherUserForId(users, friends.idFriends);
+
+
                     } else {
                         this.otherUsers = users;
                     }
                 })
+
             },
             err => {
                 console.log(err)
@@ -74,10 +80,13 @@ export class MyFriendsPage implements OnInit {
             let us = allUsers.find(user => user._id == idFriends[i]);
             if (us !== undefined) {
                 this.myFriends.push(us.name);
+                this.empty = false;
             }
 
         }
         this.myFriends = this.myFriends.sort();
+
+
     }
 
 

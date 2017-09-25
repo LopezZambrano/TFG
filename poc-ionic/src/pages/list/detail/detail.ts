@@ -17,6 +17,7 @@ export class DetailPollPage implements OnInit {
   votes = []
   typeText: boolean;
   hour = [];
+  empty: boolean = false;
 
   userVote = [];
 
@@ -27,6 +28,7 @@ export class DetailPollPage implements OnInit {
     public voteService: VoteService,
     public navParams: NavParams) {
     this.poll = this.navParams.get('poll')
+    
   }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class DetailPollPage implements OnInit {
       for (i = 0; i < this.votes.length; i++) {
         this.nVotes.push(0);
       }
+
       this.prepareVotes();
       this.getMaxVotes();
     })
@@ -61,6 +64,11 @@ export class DetailPollPage implements OnInit {
           }
         }
       }
+    }
+    if (this.userVote.length === 0){
+      this.empty = true;
+    } else {
+      this.empty = false;
     }
   }
 
@@ -87,9 +95,9 @@ export class DetailPollPage implements OnInit {
     let i;
     for (i = 0; i < this.votes.length; i++) {
       let date: Date = new Date(this.votes[i].option.date);
-      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(),0,0)
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0)
       let vote = date.getTime() === day.getTime()
-      if (vote){
+      if (vote) {
         this.hour.push(this.votes[i].option.hour)
       }
     }
@@ -98,26 +106,39 @@ export class DetailPollPage implements OnInit {
   }
 
   getMaxVotes() {
-    /* function getMaxOfArray(numArray) {
-       return Math.max.apply(null, numArray);
-     }
- 
-     let allVotes = this.votes;
- 
-     let num = getMaxOfArray(this.nVotes);
- 
- 
-     let votesMax = this.nVotes.filter(v => v === num);
- 
-     let i;
-     for (i = 0; i < votesMax.length; i++) {
-       let index = allVotes.filter(v=> v.) 
- 
-     }    
- 
-     this.maxVotes.push(this.votes[i])
- console.log(this.maxVotes)*/
+    let i;
+    
+    this.maxVotes.push({'n':this.nVotes[0], 'option': this.votes[0]})
+    for(i=1; i<this.nVotes.length;i++){
+      if(this.nVotes[i] > this.maxVotes[0].n){
+        this.maxVotes = [{'n':this.nVotes[i], 'option': this.votes[i]}]
+      } else if (this.nVotes[i] === this.maxVotes[0].n){
+        this.maxVotes.push({'n':this.nVotes[i], 'option': this.votes[i]})
+      }
+    }
+    console.log(this.maxVotes)
   }
+
+/*    function getMaxOfArray(numArray) {
+      return Math.max.apply(null, numArray);
+    }
+
+    let allVotes = this.votes;
+
+    let num = getMaxOfArray(this.nVotes);
+
+
+    let votesMax = this.nVotes.filter(v => v === num);
+
+    let i;
+    for (i = 0; i < votesMax.length; i++) {
+      let index = allVotes.filter(v => v.) 
+ 
+    }
+
+    this.maxVotes.push(this.votes[i])
+    console.log(this.maxVotes)*/
+  
 
 
 

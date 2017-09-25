@@ -28,7 +28,12 @@ export class ListPollPage implements OnInit{
 
   ngOnInit(){
     this.polls = this.navParams.data.poll;
+    if (this.polls === undefined){
+      this.polls = []
+    } 
+    console.log(this.polls)
     this.pending = this.navParams.data.pending;
+    console.log(this.pending)
   
   }
 

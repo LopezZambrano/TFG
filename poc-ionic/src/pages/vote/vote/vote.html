@@ -46,7 +46,7 @@
             <div class="option">Opciones</div>
             <div *ngIf="text">
                 <ion-list radio-group>
-                    <ion-item class="radio" *ngFor="let possibility of poll.possibilities">
+                    <ion-item no-lines class="radio" *ngFor="let possibility of poll.possibilities">
                         <ion-label *ngIf="text">{{possibility.option}}</ion-label>
                         <ion-radio (ionSelect)="radio(possibility)"></ion-radio>
                     </ion-item>

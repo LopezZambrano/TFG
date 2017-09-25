@@ -26,6 +26,9 @@ export class ProfilePage implements OnInit {
   user: User;
   errors = [];
 
+  showNa: boolean = false;
+  showPass: boolean = false;
+
   profileForm: FormGroup;
 
   ngOnInit() {
@@ -70,62 +73,83 @@ export class ProfilePage implements OnInit {
 
     this.validator();
 
-    if (this.profileForm.controls['user'].value !== this.user.name) {
-      if (this.profileForm.controls['password'].value !== null && this.profileForm.controls['password'].valid) {
-        if (this.profileForm.controls['confirm'].valid && this.profileForm.controls['confirm'].value === this.user.password) {
-          this.auth.updateUser(this.profileForm.controls['user'].value, this.profileForm.controls['password'].value).subscribe(res => {
-            this.showPopup("Guardado", "Cambios guardados correctamente")
-            this.auth.getUser().subscribe(user => this.user = user);
-          },
-            err => {
-              if (err.status === 401) {
-                this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
-                this.error('user', err.status);
-              }
-            })
-
-        } else {
-          this.error('confirm', 2)
-        }
-
-      } else {
-        if (this.profileForm.controls['confirm'].valid && this.profileForm.controls['confirm'].value === this.user.password) {
-          this.auth.updateUser(this.profileForm.controls['user'].value, this.user.password).subscribe(res => {
-            this.showPopup("Guardado", "Cambios guardados correctamente")
-            this.auth.getUser().subscribe(user => this.user = user);
-          },
-            err => {
-              if (err.status === 401) {
-                this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
-                this.error('user', err.status);
-              }
-            })
-        } else {
-          this.error('confirm', 2)
-        }
-
+    if (this.profileForm.controls['user'].value.length > 0 || this.profileForm.controls['password'].value.length > 0) {
+      if (this.profileForm.controls['confirm'].value.length > 0) {
+        let newUser = this.profileForm.controls['user'].value;
+        let newPassword = this.profileForm.controls['password'].value;
+        let confirm = this.profileForm.controls['confirm'].value;
+        this.auth.updateUser(confirm, newUser, newPassword).subscribe(res => {
+          this.showPopup("Guardado", "Cambios guardados correctamente")
+        }, err => {
+          if (err.status === 401) {
+            this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
+            this.error('user', err.status);
+          }
+          if (err.status === 402) {
+            this.showPopup("Error", "Contraseña introducida incorrecta");
+            this.error('password', 2);
+          }
+        })
       }
-    } else {
-      if (this.profileForm.controls['password'].value !== null && this.profileForm.controls['password'].valid) {
-        if (this.profileForm.controls['confirm'].valid && this.profileForm.controls['confirm'].value === this.user.password) {
-          this.auth.updateUser(this.profileForm.controls['user'].value, this.profileForm.controls['password'].value).subscribe(res => {
-            this.showPopup("Guardado", "Cambios guardados correctamente")
-            this.auth.getUser().subscribe(user => this.user = user);
-          },
-            err => {
-              if (err.status === 401) {
-                this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
-                this.error('user', err.status);
-              }
-            })
-        } else {
-          this.error('confirm', 2)
-        }
-      } else {
-        console.log('No ha cambiado nada')
-      }
+
     }
-
+    /*
+        if (this.profileForm.controls['user'].value !== this.user.name) {
+          if (this.profileForm.controls['password'].value !== null && this.profileForm.controls['password'].valid) {
+            if (this.profileForm.controls['confirm'].valid && this.profileForm.controls['confirm'].value === this.user.password) {
+              this.auth.updateUser(this.profileForm.controls['user'].value, this.profileForm.controls['password'].value).subscribe(res => {
+                this.showPopup("Guardado", "Cambios guardados correctamente")
+                this.auth.getUser().subscribe(user => this.user = user);
+              },
+                err => {
+                  if (err.status === 401) {
+                    this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
+                    this.error('user', err.status);
+                  }
+                })
+    
+            } else {
+              this.error('confirm', 2)
+            }
+    
+          } else {
+            if (this.profileForm.controls['confirm'].valid && this.profileForm.controls['confirm'].value === this.user.password) {
+              this.auth.updateUser(this.profileForm.controls['user'].value, this.user.password).subscribe(res => {
+                this.showPopup("Guardado", "Cambios guardados correctamente")
+                this.auth.getUser().subscribe(user => this.user = user);
+              },
+                err => {
+                  if (err.status === 401) {
+                    this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
+                    this.error('user', err.status);
+                  }
+                })
+            } else {
+              this.error('confirm', 2)
+            }
+    
+          }
+        } else {
+          if (this.profileForm.controls['password'].value !== null && this.profileForm.controls['password'].valid) {
+            if (this.profileForm.controls['confirm'].valid && this.profileForm.controls['confirm'].value === this.user.password) {
+              this.auth.updateUser(this.profileForm.controls['user'].value, this.profileForm.controls['password'].value).subscribe(res => {
+                this.showPopup("Guardado", "Cambios guardados correctamente")
+                this.auth.getUser().subscribe(user => this.user = user);
+              },
+                err => {
+                  if (err.status === 401) {
+                    this.showPopup("Error", "Ya hay una cuenta registrada con ese nombre");
+                    this.error('user', err.status);
+                  }
+                })
+            } else {
+              this.error('confirm', 2)
+            }
+          } else {
+            console.log('No ha cambiado nada')
+          }
+        }
+    */
   }
 
   showPopup(title, text) {
@@ -143,10 +167,23 @@ export class ProfilePage implements OnInit {
     alert.present();
   }
 
-  borrar(){
-    this.auth.deleteUser().subscribe(res=>{
+  borrar() {
+    this.auth.deleteUser().subscribe(res => {
       this.showPopup('Confirmación', 'Su cuenta ha sido eliminada con éxito');
       this.nav.push(LoginPage);
     })
   }
+
+  showName() {
+    this.showNa = !this.showNa;
+    this.profileForm.reset()
+
+  }
+
+  showPassword() {
+    this.showPass = !this.showPass;
+    this.profileForm.reset()
+
+  }
+
 }

@@ -5,10 +5,6 @@ export interface User {
      email: string;
      //Contraseña
     password: string;
-    //Imagen
-    foto?: string;
-     //Edad
-     age?:number;
      //Identificador
      _id: number;
 

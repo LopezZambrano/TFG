@@ -17,11 +17,14 @@ export class ListPage implements OnInit{
 
   polls: Poll[] = [];
   votes = {'name': "Maria"}
+  empty = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public pollService: PollService,
-              public authService: AuthService) {}
+              public authService: AuthService) {
+               /* this.polls = [{'title':''}];*/
+              }
 
   ngOnInit(){
     this.authService.getUser()
@@ -29,6 +32,9 @@ export class ListPage implements OnInit{
     .subscribe(
       res=>{
         this.polls = res;
+        if (this.polls.length === 0){
+          this.empty = true
+        } 
       },
       err=>{
         console.log(err)
