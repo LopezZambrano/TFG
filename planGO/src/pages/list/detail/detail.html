@@ -73,11 +73,13 @@
           <div class="col grey" *ngFor="let n of nVotes"> {{n}}</div>
         </div>
       </div>
-
-      <div *ngFor="let vote of maxVotes" class="max">
+      <div class="max">
         Más votado:
-        <span class="grey">{{vote.option.option.date  | date: 'dd-MM-yyyy'}}
+        <div *ngFor="let vote of maxVotes">
+
+          <span class="grey">{{vote.option.option.date  | date: 'dd-MM-yyyy'}}
         {{vote.option.option.hour}}</span>
+        </div>
       </div>
     </div>
   </div>
